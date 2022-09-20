@@ -3,11 +3,10 @@ title: "An introduction to R programming"
 author: "Shamit Soneji"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
-#output: bookdown::gitbook
-output:
-  bookdown::html_book:
-    theme: flatly
-
+output: bookdown::gitbook
+#output:
+#  bookdown::html_book:
+#    theme: flatly
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
