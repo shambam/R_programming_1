@@ -6,7 +6,7 @@ introduction
 practice-makes-perfect
 why-use-r
 what-other-languages-do-bioinformaticians-use
-getting-r
+getting-r-and-rstudio
 hello-bookdown
 a-section
 cross
