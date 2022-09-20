@@ -34,7 +34,7 @@ The Python language has been rocketing in popularity for the past few years, par
 
 ## Getting R
 
-Point your browser to http://cran.r-project.org/ to download and install the latest version of R. For these tutorials we are also going o use [RStudio](http://www.rstudio.com/) which is an advanced environment for R which includes a window for an editor, console, and plotting window. You will see what this means later.
+Point your browser to http://cran.r-project.org/ to download and install the latest version of R. For these tutorials we are also going to use [RStudio](http://www.rstudio.com/) which is an advanced development environment for R which includes a window for an editor, console, and plotting window. You will see what this means later.
 
 
 
