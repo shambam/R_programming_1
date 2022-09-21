@@ -5,7 +5,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="5.2 Citations | An introduction to R programming" />
+<meta property="og:title" content=" 2 RStudio | An introduction to R programming" />
 <meta property="og:type" content="book" />
 
 <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
@@ -24,7 +24,7 @@ MathJax.Hub.Config({
 
 <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
 
-<title>5.2 Citations | An introduction to R programming</title>
+<title> 2 RStudio | An introduction to R programming</title>
 
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -211,27 +211,34 @@ details > summary {
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="citations" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> Citations</h2>
-<p>Reference items in your bibliography file(s) using <code>@key</code>.</p>
-<p>For example, we are using the <strong>bookdown</strong> package <span class="citation">(<a href="#ref-R-bookdown" role="doc-biblioref">Xie 2022</a>)</span> (check out the last code chunk in index.Rmd to see how this citation key was added) in this sample book, which was built on top of R Markdown and <strong>knitr</strong> <span class="citation">(<a href="#ref-xie2015" role="doc-biblioref">Xie 2015</a>)</span> (this citation was added manually in an external file book.bib).
-Note that the <code>.bib</code> files need to be listed in the index.Rmd with the YAML <code>bibliography</code> key.</p>
-<p>The RStudio Visual Markdown Editor can also make it easier to insert citations: <a href="https://rstudio.github.io/visual-markdown-editing/#/citations" class="uri">https://rstudio.github.io/visual-markdown-editing/#/citations</a></p>
+<div id="rstudio" class="section level1" number="2">
+<h1><span class="header-section-number"> 2</span> RStudio</h1>
+<p>Open up RStudio, and it will look something like this:</p>
+<p><img src="images/rstudio.png" width="90%" style="display: block; margin: auto;" /></p>
+<p>The different parts are:</p>
+<ol style="list-style-type: decimal">
+<li>The code editor. This is where you write code.</li>
+<li>The R console. This is the R environment where R code is executed.</li>
+<li>Workspace. The objects you create along the way will be listed here.</li>
+<li>Plots and files. Plots will render here, and files can be browsed in the “Files” pane.</li>
+</ol>
+<p>Before we start, we need to do a little prep.</p>
+<ol style="list-style-type: decimal">
+<li>On your computer, make a folder called “Rcourse1”.</li>
+</ol>
+<p>We then set the working directroy to this folder, so</p>
+<ol start="2" style="list-style-type: decimal">
+<li>In RStudio go to Session &gt; Set Working Directory &gt; Choose Directory and find the “Rcourse1” folder and select it.</li>
+</ol>
+<p>RStudio will now be looking for files in this folder, and any saved plots will be put here unless stated otherwise.</p>
+<p>Now, go to File &gt; New File &gt; R Script</p>
+<p>A new empty script will open up in the top left window. Go to File &gt; Save and give it a name. It will them be saved to you current working directory. You should see your file being added to the list in the Plot and Files pane.</p>
+<p>Now that we’ve done our prep, let do some R.</p>
 
 </div>
-<!-- </div> -->
-<h3>References</h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-xie2015" class="csl-entry">
-Xie, Yihui. 2015. <em>Dynamic Documents with <span>R</span> and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.org/knitr/">http://yihui.org/knitr/</a>.
-</div>
-<div id="ref-R-bookdown" class="csl-entry">
-———. 2022. <em>Bookdown: Authoring Books and Technical Documents with r Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.
-</div>
-</div>
 <p style="text-align: center;">
-<a href="5.html"><button class="btn btn-default">Previous</button></a>
-<a href="6-blocks.html"><button class="btn btn-default">Next</button></a>
+<a href="1.html"><button class="btn btn-default">Previous</button></a>
+<a href="3-thebasics.html"><button class="btn btn-default">Next</button></a>
 </p>
 </div>
 </div>

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>An introduction to R programming</title>
+  <title> 2 RStudio | An introduction to R programming</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="An introduction to R programming" />
+  <meta property="og:title" content=" 2 RStudio | An introduction to R programming" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="An introduction to R programming" />
+  <meta name="twitter:title" content=" 2 RStudio | An introduction to R programming" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="rstudio.html"/>
+<link rel="prev" href="index.html"/>
+<link rel="next" href="thebasics.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -209,40 +209,38 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">An introduction to R programming</h1>
-<p class="author"><em>Shamit Soneji</em></p>
-<p class="date"><em>2022-09-20</em></p>
-</div>
-<div id="introduction" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number"> 1</span> Introduction<a href="index.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>The purpose of this course is to teach you the basics of the R language and give you the confidence to tackle larger projects using the language. <em>Importantly, we want to get you thinking like a programmer</em>. This doesn’t mean that by the end of the course you will know R fully, but you will know enough so you can go online and look for the help you need to complete most tasks.</p>
-<div id="practice-makes-perfect" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Practice makes perfect<a href="index.html#practice-makes-perfect" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Programming is like any skill, the more you practice the better you get. <strong><em>It’s really important that you keep using what you have learned after the course is completed</em></strong> otherwise there is a good chance you will forget everything and you’ll be back to square one.</p>
-</div>
-<div id="why-use-r" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Why Use R?<a href="index.html#why-use-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>R is a programming language with a focus on mathematics and statistics, but R can be used for a wide variety of applications given the flexibility of the language. R is also free, and available for all operating systems. Given the richness of the language and no cost to use it, bioinformaticians have used R for more than 20 years as the platform for which which to develop packages to solve bioinformatics problems.</p>
-<p>The <a href="https://www.bioconductor.org/">BioConductor Project</a> is a repository for bioinformatics tools which continues to grow, and hosts packages such as DESeq2 which you may have heard of. Some other popular packages such as Seurat aren’t actually hosted by Bioconductor, but in the main R package repository. We’ll cover package installation later later.</p>
-</div>
-<div id="what-other-languages-do-bioinformaticians-use" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> What other languages do bioinformaticians use?<a href="index.html#what-other-languages-do-bioinformaticians-use" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The Python language has been rocketing in popularity for the past few years, particularly among data scientists whi make use of the AI/ML tools such as Tensorflow and PyTorch. Scanpy is a very popular package for single-cell analysis. For very computationally intensive tasks (e.g sequence alignment), languages such as C/C++/Rust are more commonly used, but these are far more difficult to learn.</p>
-</div>
-<div id="getting-r-and-rstudio" class="section level2 hasAnchor" number="1.4">
-<h2><span class="header-section-number">1.4</span> Getting R and RStudio<a href="index.html#getting-r-and-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Point your browser to <a href="http://cran.r-project.org/" class="uri">http://cran.r-project.org/</a> to download and install the latest version of R. For these tutorials we are also going to use <a href="http://www.rstudio.com/">RStudio</a> which is an advanced development environment for R which includes a window for an editor, console, and plotting window. You will see what this means later.</p>
+<div id="rstudio" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number"> 2</span> RStudio<a href="rstudio.html#rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Open up RStudio, and it will look something like this:</p>
+<p><img src="images/rstudio.png" width="90%" style="display: block; margin: auto;" /></p>
+<p>The different parts are:</p>
+<ol style="list-style-type: decimal">
+<li>The code editor. This is where you write code.</li>
+<li>The R console. This is the R environment where R code is executed.</li>
+<li>Workspace. The objects you create along the way will be listed here.</li>
+<li>Plots and files. Plots will render here, and files can be browsed in the “Files” pane.</li>
+</ol>
+<p>Before we start, we need to do a little prep.</p>
+<ol style="list-style-type: decimal">
+<li>On your computer, make a folder called “Rcourse1”.</li>
+</ol>
+<p>We then set the working directroy to this folder, so</p>
+<ol start="2" style="list-style-type: decimal">
+<li>In RStudio go to Session &gt; Set Working Directory &gt; Choose Directory and find the “Rcourse1” folder and select it.</li>
+</ol>
+<p>RStudio will now be looking for files in this folder, and any saved plots will be put here unless stated otherwise.</p>
+<p>Now, go to File &gt; New File &gt; R Script</p>
+<p>A new empty script will open up in the top left window. Go to File &gt; Save and give it a name. It will them be saved to you current working directory. You should see your file being added to the list in the Plot and Files pane.</p>
+<p>Now that we’ve done our prep, let do some R.</p>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="rstudio.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="thebasics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -273,7 +271,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/01-Rstudio.Rmd",
 "text": "Edit"
 },
 "history": {

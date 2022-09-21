@@ -1,0 +1,61 @@
+# The Basics {#thebasics}
+
+We'll now look at some basic operations. The code should be copied into your R script as we go along.
+
+## Assigning a variable.
+
+Into your script copy/type the following line:
+
+```{r}
+x <- c(1,2,3,4,5,6,7,8,9,10)
+```
+
+This will make a **vector** of values from 1 to 10, and put them into a variable called ```x```.
+
+Execute the code by hitting the "Run" button at the top-right of the script window. You will see this line appear in the R console below.
+
+To view the contents of the object you have just created, just type ```x``` in the **console** and hit return:
+
+```{r}
+x
+```
+
+The contents of x are now printed out.
+
+Now is a good time to learn about commenting and documenting code. This is free text you put into your scripts that tell the reader whats going on, and to remind your future self of what you did. Comments are put in using ```#```, so for example:
+
+```{r}
+x <- c(1,2,3,4,5,6,7,8,9,10) # This is a comment.
+```
+
+Anything after a ```#``` will be ignored. You can run the code again to check.
+
+Back to vectors. There is a much simpler way to create the same type of object:
+
+```{r}
+x <- 1:10
+x
+```
+Much better. Using a comma will always do increments of 1, but is also bidirectional:
+
+```{r}
+y <- 5:-5
+y
+```
+
+Another way of creating a sequence of numbers is to use the `seq` function. To learn how this function works, issue the command `help(seq)`. In R you can get a manual for any function using the `help()` command. To generate a vector of numbers from 1 to 100 in steps of 10 we need:
+
+```{r}
+a <- seq(0,100,by=10)
+a
+```
+
+***Exercise:*** Generate a vector called 'b' ranging from 3 to 987 where the length of the vector is 53 entries long.
+Done? Check the length of the vector you have just made by issuing `length(b)`.
+
+```{r class.source = 'fold-hide',results=F}
+a <- seq(3,978,length=53)
+a
+```
+
+

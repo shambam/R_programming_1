@@ -3,10 +3,15 @@ title: "An introduction to R programming"
 author: "Shamit Soneji"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
-output: bookdown::gitbook
+#output: bookdown::gitbook
 #output:
 #  bookdown::html_book:
 #    theme: flatly
+#    code_folding: hide
+output:
+  html_document:
+    code_folding: show
+
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
@@ -32,7 +37,7 @@ The [BioConductor Project](https://www.bioconductor.org/) is a repository for bi
 
 The Python language has been rocketing in popularity for the past few years, particularly among data scientists whi make use of the AI/ML tools such as Tensorflow and PyTorch. Scanpy is a very popular package for single-cell analysis. For very computationally intensive tasks (e.g sequence alignment), languages such as C/C++/Rust are more commonly used, but these are far more difficult to learn.
 
-## Getting R and Rstudio
+## Getting R and RStudio
 
 Point your browser to http://cran.r-project.org/ to download and install the latest version of R. For these tutorials we are also going to use [RStudio](http://www.rstudio.com/) which is an advanced development environment for R which includes a window for an editor, console, and plotting window. You will see what this means later.
 

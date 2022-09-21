@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>An introduction to R programming</title>
+  <title> 3 The Basics | An introduction to R programming</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="An introduction to R programming" />
+  <meta property="og:title" content=" 3 The Basics | An introduction to R programming" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="An introduction to R programming" />
+  <meta name="twitter:title" content=" 3 The Basics | An introduction to R programming" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="rstudio.html"/>
+<link rel="prev" href="rstudio.html"/>
+<link rel="next" href="parts.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -209,30 +209,36 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">An introduction to R programming</h1>
-<p class="author"><em>Shamit Soneji</em></p>
-<p class="date"><em>2022-09-20</em></p>
-</div>
-<div id="introduction" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number"> 1</span> Introduction<a href="index.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>The purpose of this course is to teach you the basics of the R language and give you the confidence to tackle larger projects using the language. <em>Importantly, we want to get you thinking like a programmer</em>. This doesn’t mean that by the end of the course you will know R fully, but you will know enough so you can go online and look for the help you need to complete most tasks.</p>
-<div id="practice-makes-perfect" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Practice makes perfect<a href="index.html#practice-makes-perfect" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Programming is like any skill, the more you practice the better you get. <strong><em>It’s really important that you keep using what you have learned after the course is completed</em></strong> otherwise there is a good chance you will forget everything and you’ll be back to square one.</p>
-</div>
-<div id="why-use-r" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Why Use R?<a href="index.html#why-use-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>R is a programming language with a focus on mathematics and statistics, but R can be used for a wide variety of applications given the flexibility of the language. R is also free, and available for all operating systems. Given the richness of the language and no cost to use it, bioinformaticians have used R for more than 20 years as the platform for which which to develop packages to solve bioinformatics problems.</p>
-<p>The <a href="https://www.bioconductor.org/">BioConductor Project</a> is a repository for bioinformatics tools which continues to grow, and hosts packages such as DESeq2 which you may have heard of. Some other popular packages such as Seurat aren’t actually hosted by Bioconductor, but in the main R package repository. We’ll cover package installation later later.</p>
-</div>
-<div id="what-other-languages-do-bioinformaticians-use" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> What other languages do bioinformaticians use?<a href="index.html#what-other-languages-do-bioinformaticians-use" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The Python language has been rocketing in popularity for the past few years, particularly among data scientists whi make use of the AI/ML tools such as Tensorflow and PyTorch. Scanpy is a very popular package for single-cell analysis. For very computationally intensive tasks (e.g sequence alignment), languages such as C/C++/Rust are more commonly used, but these are far more difficult to learn.</p>
-</div>
-<div id="getting-r-and-rstudio" class="section level2 hasAnchor" number="1.4">
-<h2><span class="header-section-number">1.4</span> Getting R and RStudio<a href="index.html#getting-r-and-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Point your browser to <a href="http://cran.r-project.org/" class="uri">http://cran.r-project.org/</a> to download and install the latest version of R. For these tutorials we are also going to use <a href="http://www.rstudio.com/">RStudio</a> which is an advanced development environment for R which includes a window for an editor, console, and plotting window. You will see what this means later.</p>
+<div id="thebasics" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number"> 3</span> The Basics<a href="thebasics.html#thebasics" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>We’ll now look at some basic operations. The code should be copied into your R script as we go along.</p>
+<div id="assigning-a-variable." class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Assigning a variable.<a href="thebasics.html#assigning-a-variable." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Into your script copy/type the following line:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="thebasics.html#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>)</span></code></pre></div>
+<p>This will make a <strong>vector</strong> of values from 1 to 10, and put them into a variable called <code>x</code>.</p>
+<p>Execute the code by hitting the “Run” button at the top-right of the script window. You will see this line appear in the R console below.</p>
+<p>To view the contents of the object you have just created, just type <code>x</code> in the <strong>console</strong> and hit return:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="thebasics.html#cb2-1" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<p>The contents of x are now printed out.</p>
+<p>Now is a good time to learn about commenting and documenting code. This is free text you put into your scripts that tell the reader whats going on, and to remind your future self of what you did. Comments are put in using <code>#</code>, so for example:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="thebasics.html#cb4-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>) <span class="co"># This is a comment.</span></span></code></pre></div>
+<p>Anything after a <code>#</code> will be ignored. You can run the code again to check.</p>
+<p>Back to vectors. There is a much simpler way to create the same type of object:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="thebasics.html#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb5-2"><a href="thebasics.html#cb5-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<p>Much better. Using a comma will always do increments of 1, but is also bidirectional:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="thebasics.html#cb7-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">5</span><span class="sc">:-</span><span class="dv">5</span></span>
+<span id="cb7-2"><a href="thebasics.html#cb7-2" aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div>
+<pre><code>##  [1]  5  4  3  2  1  0 -1 -2 -3 -4 -5</code></pre>
+<p>Another way of creating a sequence of numbers is to use the <code>seq</code> function. To learn how this function works, issue the command <code>help(seq)</code>. In R you can get a manual for any function using the <code>help()</code> command. To generate a vector of numbers from 1 to 100 in steps of 10 we need:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="thebasics.html#cb9-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">100</span>,<span class="at">by=</span><span class="dv">10</span>)</span>
+<span id="cb9-2"><a href="thebasics.html#cb9-2" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div>
+<pre><code>##  [1]   0  10  20  30  40  50  60  70  80  90 100</code></pre>
+<p><strong><em>Exercise:</em></strong> Generate a vector called ‘b’ ranging from 3 to 987 where the length of the vector is 53 entries long.
+Done? Check the length of the vector you have just made by issuing <code>length(b)</code>.</p>
 
 </div>
 </div>
@@ -241,8 +247,8 @@ div.csl-indent {
           </div>
         </div>
       </div>
-
-<a href="rstudio.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="parts.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -273,7 +279,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02-The-Basics.Rmd",
 "text": "Edit"
 },
 "history": {

@@ -1,11 +1,31 @@
-# Rstudio
+# RStudio
 
-All chapters start with a first-level heading followed by your chapter title, like the line above. There should be only one first-level heading (`#`) per .Rmd file.
+Open up RStudio, and it will look something like this:
 
-## A section
+```{r, out.width='90%', fig.align='center',echo=FALSE}
+knitr::include_graphics(rep("images/rstudio.png"))
+```
 
-All chapter sections start with a second-level (`##`) or higher heading followed by your section title, like the sections above and below here. You can have as many as you want within a chapter.
+The different parts are:
 
-### An unnumbered section {-}
+1. The code editor. This is where you write code.
+2. The R console. This is the R environment where R code is executed.
+3. Workspace. The objects you create along the way will be listed here.
+4. Plots and files. Plots will render here, and files can be browsed in the "Files" pane.
 
-Chapters and sections are numbered by default. To un-number a heading, add a `{.unnumbered}` or the shorter `{-}` at the end of the heading, like in this section.
+Before we start, we need to do a little prep.
+
+1. On your computer, make a folder called "Rcourse1".
+
+We then set the working directroy to this folder, so
+
+2. In RStudio go to Session > Set Working Directory > Choose Directory and find the "Rcourse1" folder and select it.
+
+RStudio will now be looking for files in this folder, and any saved plots will be put here unless stated otherwise.
+
+Now, go to File > New File > R Script
+
+A new empty script will open up in the top left window. Go to File > Save and give it a name. It will them be saved to you current working directory. You should see your file being added to the list in the Plot and Files pane.
+
+Now that we've done our prep, let do some R.
+

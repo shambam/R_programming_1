@@ -5,7 +5,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="5.2 Citations | An introduction to R programming" />
+<meta property="og:title" content="3.1 Assigning a variable. | An introduction to R programming" />
 <meta property="og:type" content="book" />
 
 <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
@@ -24,7 +24,7 @@ MathJax.Hub.Config({
 
 <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
 
-<title>5.2 Citations | An introduction to R programming</title>
+<title>3.1 Assigning a variable. | An introduction to R programming</title>
 
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -211,27 +211,39 @@ details > summary {
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="citations" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> Citations</h2>
-<p>Reference items in your bibliography file(s) using <code>@key</code>.</p>
-<p>For example, we are using the <strong>bookdown</strong> package <span class="citation">(<a href="#ref-R-bookdown" role="doc-biblioref">Xie 2022</a>)</span> (check out the last code chunk in index.Rmd to see how this citation key was added) in this sample book, which was built on top of R Markdown and <strong>knitr</strong> <span class="citation">(<a href="#ref-xie2015" role="doc-biblioref">Xie 2015</a>)</span> (this citation was added manually in an external file book.bib).
-Note that the <code>.bib</code> files need to be listed in the index.Rmd with the YAML <code>bibliography</code> key.</p>
-<p>The RStudio Visual Markdown Editor can also make it easier to insert citations: <a href="https://rstudio.github.io/visual-markdown-editing/#/citations" class="uri">https://rstudio.github.io/visual-markdown-editing/#/citations</a></p>
+<div id="assigning-a-variable." class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Assigning a variable.</h2>
+<p>Into your script copy/type the following line:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="3.1-assigning-a-variable..html#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>)</span></code></pre></div>
+<p>This will make a <strong>vector</strong> of values from 1 to 10, and put them into a variable called <code>x</code>.</p>
+<p>Execute the code by hitting the “Run” button at the top-right of the script window. You will see this line appear in the R console below.</p>
+<p>To view the contents of the object you have just created, just type <code>x</code> in the <strong>console</strong> and hit return:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="3.1-assigning-a-variable..html#cb2-1" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<p>The contents of x are now printed out.</p>
+<p>Now is a good time to learn about commenting and documenting code. This is free text you put into your scripts that tell the reader whats going on, and to remind your future self of what you did. Comments are put in using <code>#</code>, so for example:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="3.1-assigning-a-variable..html#cb4-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>) <span class="co"># This is a comment.</span></span></code></pre></div>
+<p>Anything after a <code>#</code> will be ignored. You can run the code again to check.</p>
+<p>Back to vectors. There is a much simpler way to create the same type of object:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="3.1-assigning-a-variable..html#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb5-2"><a href="3.1-assigning-a-variable..html#cb5-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<p>Much better. Using a comma will always do increments of 1, but is also bidirectional:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="3.1-assigning-a-variable..html#cb7-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">5</span><span class="sc">:-</span><span class="dv">5</span></span>
+<span id="cb7-2"><a href="3.1-assigning-a-variable..html#cb7-2" aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div>
+<pre><code>##  [1]  5  4  3  2  1  0 -1 -2 -3 -4 -5</code></pre>
+<p>Another way of creating a sequence of numbers is to use the <code>seq</code> function. To learn how this function works, issue the command <code>help(seq)</code>. In R you can get a manual for any function using the <code>help()</code> command. To generate a vector of numbers from 1 to 100 in steps of 10 we need:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="3.1-assigning-a-variable..html#cb9-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">100</span>,<span class="at">by=</span><span class="dv">10</span>)</span>
+<span id="cb9-2"><a href="3.1-assigning-a-variable..html#cb9-2" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div>
+<pre><code>##  [1]   0  10  20  30  40  50  60  70  80  90 100</code></pre>
+<p><strong><em>Exercise:</em></strong> Generate a vector called ‘b’ ranging from 3 to 987 where the length of the vector is 53 entries long.
+Done? Check the length of the vector you have just made by issuing <code>length(b)</code>.</p>
 
 </div>
 <!-- </div> -->
-<h3>References</h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-xie2015" class="csl-entry">
-Xie, Yihui. 2015. <em>Dynamic Documents with <span>R</span> and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.org/knitr/">http://yihui.org/knitr/</a>.
-</div>
-<div id="ref-R-bookdown" class="csl-entry">
-———. 2022. <em>Bookdown: Authoring Books and Technical Documents with r Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.
-</div>
-</div>
 <p style="text-align: center;">
-<a href="5.html"><button class="btn btn-default">Previous</button></a>
-<a href="6-blocks.html"><button class="btn btn-default">Next</button></a>
+<a href="3-thebasics.html"><button class="btn btn-default">Previous</button></a>
+<a href="4-parts.html"><button class="btn btn-default">Next</button></a>
 </p>
 </div>
 </div>
