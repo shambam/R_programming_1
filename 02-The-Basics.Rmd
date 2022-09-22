@@ -58,4 +58,17 @@ a <- seq(3,978,length=53)
 a
 ```
 
+A note about assigning things to variable names. I use ```<-```, but you can also use ```=``` too. So
+
+```{r}
+g <- 1:5
+g
+```
+
+Is the same as:
+```{r}
+g = 1:5
+g
+```
+
 

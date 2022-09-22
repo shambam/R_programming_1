@@ -23,7 +23,7 @@
 <meta name="author" content="Shamit Soneji" />
 
 
-<meta name="date" content="2022-09-20" />
+<meta name="date" content="2022-09-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -158,12 +158,13 @@ div.csl-indent {
 <li><a href="./">R programming 1</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> bookdown::html_book:</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#practice-makes-perfect"><i class="fa fa-check"></i><b>1.1</b> Practice makes perfect</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#why-use-r"><i class="fa fa-check"></i><b>1.2</b> Why Use R?</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#what-other-languages-do-bioinformaticians-use"><i class="fa fa-check"></i><b>1.3</b> What other languages do bioinformaticians use?</a></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#getting-r-and-rstudio"><i class="fa fa-check"></i><b>1.4</b> Getting R and RStudio</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#how-will-this-course-work"><i class="fa fa-check"></i><b>1.4</b> How will this course work?</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#getting-r-and-rstudio"><i class="fa fa-check"></i><b>1.5</b> Getting R and RStudio</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="rstudio.html"><a href="rstudio.html"><i class="fa fa-check"></i><b>2</b> RStudio</a></li>
 <li class="chapter" data-level="3" data-path="thebasics.html"><a href="thebasics.html"><i class="fa fa-check"></i><b>3</b> The Basics</a>
@@ -239,6 +240,16 @@ div.csl-indent {
 <pre><code>##  [1]   0  10  20  30  40  50  60  70  80  90 100</code></pre>
 <p><strong><em>Exercise:</em></strong> Generate a vector called ‘b’ ranging from 3 to 987 where the length of the vector is 53 entries long.
 Done? Check the length of the vector you have just made by issuing <code>length(b)</code>.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r fold-hide"><code class="sourceCode r"><span id="cb11-1"><a href="thebasics.html#cb11-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">3</span>,<span class="dv">978</span>,<span class="at">length=</span><span class="dv">53</span>)</span>
+<span id="cb11-2"><a href="thebasics.html#cb11-2" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div>
+<p>A note about assigning things to variable names. I use <code>&lt;-</code>, but you can also use <code>=</code> too. So</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="thebasics.html#cb12-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb12-2"><a href="thebasics.html#cb12-2" aria-hidden="true" tabindex="-1"></a>g</span></code></pre></div>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<p>Is the same as:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="thebasics.html#cb14-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb14-2"><a href="thebasics.html#cb14-2" aria-hidden="true" tabindex="-1"></a>g</span></code></pre></div>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
 
 </div>
 </div>
@@ -302,20 +313,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
