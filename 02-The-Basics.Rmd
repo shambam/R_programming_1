@@ -10,11 +10,11 @@ Into your script copy/type the following line:
 x <- c(1,2,3,4,5,6,7,8,9,10)
 ```
 
-This will make a **vector** of values from 1 to 10, and put them into a variable called ```x```.
+This will make a **vector** of values from 1 to 10, and put them into a variable called `x`.
 
 Execute the code by hitting the "Run" button at the top-right of the script window. You will see this line appear in the R console below.
 
-To view the contents of the object you have just created, just type ```x``` in the **console** and hit return:
+To view the contents of the object you have just created, just type `x` in the **console** and hit return:
 
 ```{r}
 x
@@ -28,15 +28,15 @@ Now is a good time to learn about commenting and documenting code. This is free 
 x <- c(1,2,3,4,5,6,7,8,9,10) # This is a comment.
 ```
 
-Anything after a ```#``` will be ignored. You can run the code again to check.
+Anything after a `#` will be ignored. You can run the code again to check.
 
-Back to vectors. There is a much simpler way to create the same type of object:
+Rather than typing in the value 1 to 10, there is a much simpler way to create the same vector using `:`
 
 ```{r}
 x <- 1:10
 x
 ```
-Much better. Using a comma will always do increments of 1, but is also bidirectional:
+Much better! Using a colon will always do increments of 1, and it's also bidirectional:
 
 ```{r}
 y <- 5:-5
@@ -70,5 +70,66 @@ Is the same as:
 g = 1:5
 g
 ```
+
+We can also make a new vector `d` using a vector `c`: 
+```{r}
+c <- 1:50 #make a vector c ranging from 1:50
+d <- 1/c  #make a vector d by dividing 1 by c
+d
+```
+
+## Basic plotting
+
+Lets use this vector `d` and plot them:
+
+```{r fig.width=5, fig.height=4}
+plot(d)
+```
+
+Note the way the axes are labelled in the plot function.
+
+***Exercise:*** Call `help(plot)` in the console and read about the other plot options available. Produce the same plot as above, but this time as a **line** which is coloured **red**. Also, label the axes $c$ and $d$ and give the plot a title.
+
+```{r class.source = 'fold-hide',results=T,fig.width=5, fig.height=4}
+plot(d,ty="l",col="red",xlab="c",ylab="d",main="My first plot")
+```
+
+This plot was done using **base** R. This means we used the plotting functions native, or built-in to the R language. Plotting has been vamped up a lot in R since ggplot was introduced some time ago, the aim here to make plotting more customisable. Lets try the same plot but using ggplot. First, install it:
+
+```{r,eval=FALSE}
+install.packages(ggplot2) #you only have to do this once.
+```
+
+Now call the ggplot library:
+
+```{r}
+library(ggplot2)
+```
+
+The first thing we need to do is make a **data.frame** of the data by doing:
+```{r}
+df <- data.frame(c=c,d=d)
+```
+
+This makes a table. You can see the first few lines by doing:
+```{r}
+df[1:5,]
+```
+Lets make the plot:
+```{r fig.width=5, fig.height=4}
+ggplot(data=df, aes(x=c, y=d)) +geom_line()
+```
+
+We can even add the points:
+```{r fig.width=5, fig.height=4}
+ggplot(data=df, aes(x=c, y=d)) +geom_line()+geom_point()
+```
+
+and change the colour of each:
+```{r fig.width=5, fig.height=4}
+ggplot(data=df, aes(x=c, y=d)) +geom_line(color="red")+geom_point(color="green")
+```
+
+
 
 
