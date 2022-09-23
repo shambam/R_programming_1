@@ -1,12 +1,45 @@
 # Matricies
 
-You can add parts to organize one or more book chapters together. Parts can be inserted at the top of an .Rmd file, before the first-level chapter heading in that same file. 
+Matricies are the most common data format bioinformaticians work with (microarray/RNAseq data for example). Lets make one:
 
-Add a numbered part: `# (PART) Act one {-}` (followed by `# A chapter`)
+```{r}
+m <- matrix(0,ncol=5,nrow=10)
+m
+```
+This will create a matrix filled with zeros. To transpose (flip) the matrix we use `t()` (this will be important later!)
 
-Add an unnumbered part: `# (PART\*) Act one {-}` (followed by `# A chapter`)
+```{r}
+tposed.m <- t(m)
+tposed.m
+```
 
-Add an appendix as a special kind of un-numbered part: `# (APPENDIX) Other stuff {-}` (followed by `# A chapter`). Chapters in an appendix are prepended with letters instead of numbers.
+## Subsetting
 
+Lets make a matrix (and a vector) containing integer values so we can take a look at how subsetting work in R:
+```{r}
+v <- 1:10
+m <- t(matrix(1:50,ncol=10,nrow=5))
+m
+```
+We can access individual elements using square brackets `[]`. Here are some examples:
 
+```{r}
+v[c(7,1,5)] #access elements 7 1 and 5 of the vector
+m[1,] # access the first row of the matrix
+m[,3] # the 3rd column
+m[8,2] # the value in the 8th row and 2nd column
+m[3:7,4] # the 3rd to 7th row of the 4th column
+```
 
+Note the `c(7,1,5)` where we subset vector `v`. `c` means *combine* and it allows element in the `()` to be collected into a single vector.
+
+We often have the need to collect vectors and assemble them into matricies. This can be done using the `rbind` (row) and `cbind` (column) function:
+
+```{r}
+v1 <- 1:10
+v2 <- 101:110
+rbound.mat <-rbind(v1,v2)
+cbound.mat <- cbind(v1,v2)
+rbound.mat
+cbound.mat
+```
