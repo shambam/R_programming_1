@@ -130,9 +130,13 @@ and change the colour of each:
 ggplot(data=df, aes(x=c, y=d)) +geom_line(color="red")+geom_point(color="green")
 ```
 
-So ggplot is all about *layering* information onto plots, and this makes it very customisable. It definitely has a steeper learning curve, but worth it if you produce lots of plots on a day-to-day. We'll pick upp ggplot again later.
+So ggplot is all about *layering* information onto plots, and this makes it very customisable. It definitely has a steeper learning curve, but worth it if you produce lots of plots on a day-to-day. If you're struggling with the idea, use this analogy of ggplots as a cake (Tanya Shapiro (@tanya_shapiro), Twitter):
 
-While we are dealing with vector, we can also do some basic maths on them:
+```{r, out.width='50%', fig.align='center',echo=FALSE}
+knitr::include_graphics(rep("images/ggplot_cake.png"))
+```
+
+Back to vectors, we can also do maths on them:
 
 ```{r}
 mean(d) # calculate the mean of the vector
