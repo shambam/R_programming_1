@@ -130,9 +130,9 @@ and change the colour of each:
 ggplot(data=df, aes(x=c, y=d)) +geom_line(color="red")+geom_point(color="green")
 ```
 
-So ggplot is all about *layering* information onto plots, and this makes it very customisable. It definitely has a steeper learning curve, but worth it if you produce lots of plots on a day-to-day. If you're struggling with the idea, use this analogy of ggplots as a cake (Tanya Shapiro (@tanya_shapiro), Twitter):
+So ggplot is all about *layering* information onto plots, and this makes it very customisable. It definitely has a steeper learning curve, but worth it if you produce lots of plots on a day-to-day. If you're struggling with the idea, use this analogy of ggplots as a cake (Tanya Shapiro (\@tanya_shapiro), Twitter):
 
-```{r, out.width='50%', fig.align='center',echo=FALSE}
+```{r, out.width='60%', fig.align='center',echo=FALSE}
 knitr::include_graphics(rep("images/ggplot_cake.png"))
 ```
 

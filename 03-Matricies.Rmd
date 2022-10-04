@@ -33,7 +33,7 @@ m[3:7,4] # the 3rd to 7th row of the 4th column
 
 Note the `c(7,1,5)` where we subset vector `v`. `c` means *combine* and it allows element in the `()` to be collected into a single vector.
 
-We often have the need to collect vectors and assemble them into a matrix. This can be done using the `rbind` (row) and `cbind` (column) function:
+We often have the need to collect vectors and assemble them into a matrix. This can be done using the `rbind` (row) and `cbind` (column) functions:
 
 ```{r}
 v1 <- 1:10
@@ -43,3 +43,5 @@ cbound.mat <- cbind(v1,v2)
 rbound.mat
 cbound.mat
 ```
+
+We will do a lot more work with matrices later, particularly mathematical operations.
