@@ -1,15 +1,23 @@
-# Footnotes and citations 
+# Lists
 
-## Footnotes
+So far we have talked about vectors and matrices. Often we want to collect these things and put them into one object under a single variable. For example:
+```{r}
+alpha <- LETTERS[1:8]
+mat <- matrix(rnorm(40),nrow=8)
+listex1  <- list(char=alpha,nums=mat)
+```
 
-Footnotes are put inside the square brackets after a caret `^[]`. Like this one ^[This is a footnote.]. 
+You can see that each item is given a name 'char' 'numb'  before it is put into the list. Each element can now be accessed via `$`:
+```{r}
+listex1$char
+listex1$nums
+listex1$nums[1,] # the matrix within the list issubsetted as before
+```
+Another way of doing the above is:
+```{r}
+listex1[[1]] # note the double square brackets
+listex1[[2]]
+listex1[[2]][1,]
+```
 
-## Citations
-
-Reference items in your bibliography file(s) using `@key`.
-
-For example, we are using the **bookdown** package [@R-bookdown] (check out the last code chunk in index.Rmd to see how this citation key was added) in this sample book, which was built on top of R Markdown and **knitr** [@xie2015] (this citation was added manually in an external file book.bib). 
-Note that the `.bib` files need to be listed in the index.Rmd with the YAML `bibliography` key.
-
-
-The RStudio Visual Markdown Editor can also make it easier to insert citations: <https://rstudio.github.io/visual-markdown-editing/#/citations>
+Lists are ok, but they can become like the wild-west where things are thrown in with little organisation. They are fine for small things, but big data shouldn't be stored in them, or become the basis for a large project. You will see why later.

@@ -330,28 +330,6 @@ if (window.hljs) {
 
 
 
-<style type="text/css">
-/* for pandoc --citeproc since 2.11 */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 
 
@@ -787,28 +765,47 @@ mathematical operations.</p>
 <!--chapter:end:03-Matricies.Rmd-->
 </div>
 </div>
-<div id="footnotes-and-citations" class="section level1">
-<h1>Footnotes and citations</h1>
-<div id="footnotes" class="section level2">
-<h2>Footnotes</h2>
-<p>Footnotes are put inside the square brackets after a caret
-<code>^[]</code>. Like this one <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
-</div>
-<div id="citations" class="section level2">
-<h2>Citations</h2>
-<p>Reference items in your bibliography file(s) using
-<code>@key</code>.</p>
-<p>For example, we are using the <strong>bookdown</strong> package <span class="citation">(<a href="#ref-R-bookdown" role="doc-biblioref">Xie
-2022</a>)</span> (check out the last code chunk in index.Rmd to see how
-this citation key was added) in this sample book, which was built on top
-of R Markdown and <strong>knitr</strong> <span class="citation">(<a href="#ref-xie2015" role="doc-biblioref">Xie 2015</a>)</span> (this
-citation was added manually in an external file book.bib). Note that the
-<code>.bib</code> files need to be listed in the index.Rmd with the YAML
-<code>bibliography</code> key.</p>
-<p>The RStudio Visual Markdown Editor can also make it easier to insert
-citations: <a href="https://rstudio.github.io/visual-markdown-editing/#/citations" class="uri">https://rstudio.github.io/visual-markdown-editing/#/citations</a></p>
-<!--chapter:end:04-citations.Rmd-->
-</div>
+<div id="lists" class="section level1">
+<h1>Lists</h1>
+<p>So far we have talked about vectors and matrices. Often we want to
+collect these things and put them into one object under a single
+variable. For example:</p>
+<pre class="r"><code>alpha &lt;- LETTERS[1:8]
+mat &lt;- matrix(rnorm(40),nrow=8)
+listex1  &lt;- list(char=alpha,nums=mat)</code></pre>
+<p>You can see that each item is given a name ‘char’ ‘numb’ before it is
+put into the list. Each element can now be accessed via
+<code>$</code>:</p>
+<pre class="r"><code>listex1$char</code></pre>
+<pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot;</code></pre>
+<pre class="r"><code>listex1$nums</code></pre>
+<pre><code>##            [,1]       [,2]        [,3]       [,4]       [,5]
+## [1,] -0.4346728 -0.4544702  0.64847855  0.7509034  0.6365057
+## [2,] -1.4016244 -0.3928665 -0.66178895 -0.4560750  0.2876214
+## [3,] -0.8569438 -0.3658244 -2.08566653  1.6897626  0.1777054
+## [4,]  0.2819891 -0.5086923 -0.16389205  0.6083539  0.4650160
+## [5,] -1.9224097 -1.0593974 -3.01094512  2.8316499  0.2105960
+## [6,]  0.5864616 -1.3706686 -0.09533874  0.2491733  1.3971049
+## [7,] -0.1321778  0.1270169  1.29862730 -0.7561118  1.9396421
+## [8,] -0.5785203 -0.5064188 -0.45301641 -0.3203474 -0.1910360</code></pre>
+<pre class="r"><code>listex1$nums[1,] # the matrix within the list issubsetted as before</code></pre>
+<pre><code>## [1] -0.4346728 -0.4544702  0.6484786  0.7509034  0.6365057</code></pre>
+<p>Another way of doing the above is:</p>
+<pre class="r"><code>listex1[[1]] # note the double square brackets</code></pre>
+<pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot;</code></pre>
+<pre class="r"><code>listex1[[2]]</code></pre>
+<pre><code>##            [,1]       [,2]        [,3]       [,4]       [,5]
+## [1,] -0.4346728 -0.4544702  0.64847855  0.7509034  0.6365057
+## [2,] -1.4016244 -0.3928665 -0.66178895 -0.4560750  0.2876214
+## [3,] -0.8569438 -0.3658244 -2.08566653  1.6897626  0.1777054
+## [4,]  0.2819891 -0.5086923 -0.16389205  0.6083539  0.4650160
+## [5,] -1.9224097 -1.0593974 -3.01094512  2.8316499  0.2105960
+## [6,]  0.5864616 -1.3706686 -0.09533874  0.2491733  1.3971049
+## [7,] -0.1321778  0.1270169  1.29862730 -0.7561118  1.9396421
+## [8,] -0.5785203 -0.5064188 -0.45301641 -0.3203474 -0.1910360</code></pre>
+<pre class="r"><code>listex1[[2]][1,]</code></pre>
+<pre><code>## [1] -0.4346728 -0.4544702  0.6484786  0.7509034  0.6365057</code></pre>
+<!--chapter:end:04-Lists.Rmd-->
 </div>
 <div id="blocks" class="section level1">
 <h1>Blocks</h1>
@@ -879,22 +876,6 @@ linking to a chapter’s source file.</p>
 <div id="references" class="section level1 unnumbered">
 <h1 class="unnumbered">References</h1>
 <!--chapter:end:07-references.Rmd-->
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-xie2015" class="csl-entry">
-Xie, Yihui. 2015. <em>Dynamic Documents with <span>R</span> and
-Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.org/knitr/">http://yihui.org/knitr/</a>.
-</div>
-<div id="ref-R-bookdown" class="csl-entry">
-———. 2022. <em>Bookdown: Authoring Books and Technical Documents with r
-Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.
-</div>
-</div>
-</div>
-<div class="footnotes footnotes-end-of-document">
-<hr />
-<ol>
-<li id="fn1"><p>This is a footnote.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-</ol>
 </div>
 
 
