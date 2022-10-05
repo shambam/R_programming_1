@@ -11,7 +11,7 @@
 
 <meta name="author" content="Shamit Soneji" />
 
-<meta name="date" content="2022-10-04" />
+<meta name="date" content="2022-10-05" />
 
 <title>An introduction to R programming</title>
 
@@ -453,7 +453,7 @@ pre code {
 
 <h1 class="title toc-ignore">An introduction to R programming</h1>
 <h4 class="author">Shamit Soneji</h4>
-<h4 class="date">2022-10-04</h4>
+<h4 class="date">2022-10-05</h4>
 
 </div>
 
@@ -779,64 +779,42 @@ put into the list. Each element can now be accessed via
 <pre class="r"><code>listex1$char</code></pre>
 <pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot;</code></pre>
 <pre class="r"><code>listex1$nums</code></pre>
-<pre><code>##            [,1]       [,2]        [,3]       [,4]       [,5]
-## [1,] -0.4346728 -0.4544702  0.64847855  0.7509034  0.6365057
-## [2,] -1.4016244 -0.3928665 -0.66178895 -0.4560750  0.2876214
-## [3,] -0.8569438 -0.3658244 -2.08566653  1.6897626  0.1777054
-## [4,]  0.2819891 -0.5086923 -0.16389205  0.6083539  0.4650160
-## [5,] -1.9224097 -1.0593974 -3.01094512  2.8316499  0.2105960
-## [6,]  0.5864616 -1.3706686 -0.09533874  0.2491733  1.3971049
-## [7,] -0.1321778  0.1270169  1.29862730 -0.7561118  1.9396421
-## [8,] -0.5785203 -0.5064188 -0.45301641 -0.3203474 -0.1910360</code></pre>
+<pre><code>##            [,1]        [,2]        [,3]       [,4]        [,5]
+## [1,] -0.3079833 -0.41733928  0.78814117 -1.7790073 -0.64169939
+## [2,]  0.8517395 -0.09687511 -0.30906006 -0.6658608 -0.97321595
+## [3,] -0.2997949  0.79954806  0.05323712 -0.4985116  0.41922600
+## [4,]  1.9178619  1.46828358 -0.21701437 -0.3930382 -0.65044600
+## [5,]  0.4911370 -0.94771964  1.22268739 -0.5714694 -1.46735119
+## [6,]  0.4582276  0.52506371  0.48029959  0.3161449  0.54161648
+## [7,]  1.0219264 -1.01075313  1.47719772  0.8248275 -2.06061932
+## [8,] -1.1584643 -1.68881345  0.25497108 -1.7163365  0.04282327</code></pre>
 <pre class="r"><code>listex1$nums[1,] # the matrix within the list issubsetted as before</code></pre>
-<pre><code>## [1] -0.4346728 -0.4544702  0.6484786  0.7509034  0.6365057</code></pre>
+<pre><code>## [1] -0.3079833 -0.4173393  0.7881412 -1.7790073 -0.6416994</code></pre>
 <p>Another way of doing the above is:</p>
 <pre class="r"><code>listex1[[1]] # note the double square brackets</code></pre>
 <pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot;</code></pre>
 <pre class="r"><code>listex1[[2]]</code></pre>
-<pre><code>##            [,1]       [,2]        [,3]       [,4]       [,5]
-## [1,] -0.4346728 -0.4544702  0.64847855  0.7509034  0.6365057
-## [2,] -1.4016244 -0.3928665 -0.66178895 -0.4560750  0.2876214
-## [3,] -0.8569438 -0.3658244 -2.08566653  1.6897626  0.1777054
-## [4,]  0.2819891 -0.5086923 -0.16389205  0.6083539  0.4650160
-## [5,] -1.9224097 -1.0593974 -3.01094512  2.8316499  0.2105960
-## [6,]  0.5864616 -1.3706686 -0.09533874  0.2491733  1.3971049
-## [7,] -0.1321778  0.1270169  1.29862730 -0.7561118  1.9396421
-## [8,] -0.5785203 -0.5064188 -0.45301641 -0.3203474 -0.1910360</code></pre>
+<pre><code>##            [,1]        [,2]        [,3]       [,4]        [,5]
+## [1,] -0.3079833 -0.41733928  0.78814117 -1.7790073 -0.64169939
+## [2,]  0.8517395 -0.09687511 -0.30906006 -0.6658608 -0.97321595
+## [3,] -0.2997949  0.79954806  0.05323712 -0.4985116  0.41922600
+## [4,]  1.9178619  1.46828358 -0.21701437 -0.3930382 -0.65044600
+## [5,]  0.4911370 -0.94771964  1.22268739 -0.5714694 -1.46735119
+## [6,]  0.4582276  0.52506371  0.48029959  0.3161449  0.54161648
+## [7,]  1.0219264 -1.01075313  1.47719772  0.8248275 -2.06061932
+## [8,] -1.1584643 -1.68881345  0.25497108 -1.7163365  0.04282327</code></pre>
 <pre class="r"><code>listex1[[2]][1,]</code></pre>
-<pre><code>## [1] -0.4346728 -0.4544702  0.6484786  0.7509034  0.6365057</code></pre>
+<pre><code>## [1] -0.3079833 -0.4173393  0.7881412 -1.7790073 -0.6416994</code></pre>
+<p>Lists are ok, but they can become like the wild-west where things are
+thrown in with little organisation. They are fine for small things, but
+big data shouldn’t be stored in them, or become the basis for a large
+project. You will see why later.</p>
 <!--chapter:end:04-Lists.Rmd-->
 </div>
-<div id="blocks" class="section level1">
-<h1>Blocks</h1>
-<div id="equations" class="section level2">
-<h2>Equations</h2>
-<p>Here is an equation.</p>
-<p><span class="math display">\[\begin{equation}
-  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
-  (\#eq:binom)
-\end{equation}\]</span></p>
-<p>You may refer to using <code>\@ref(eq:binom)</code>, like see
-Equation @ref(eq:binom).</p>
-</div>
-<div id="theorems-and-proofs" class="section level2">
-<h2>Theorems and proofs</h2>
-<p>Labeled theorems can be referenced in text using
-<code>\@ref(thm:tri)</code>, for example, check out this smart theorem
-@ref(thm:tri).</p>
-<div id="tri" class="theorem">
-<p>For a right triangle, if <span class="math inline">\(c\)</span>
-denotes the <em>length</em> of the hypotenuse and <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> denote the lengths of the
-<strong>other</strong> two sides, we have <span class="math display">\[a^2 + b^2 = c^2\]</span></p>
-</div>
-<p>Read more here <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html" class="uri">https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html</a>.</p>
-</div>
-<div id="callout-blocks" class="section level2">
-<h2>Callout blocks</h2>
-<p>The R Markdown Cookbook provides more help on how to use custom
-blocks to design your own callouts: <a href="https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html" class="uri">https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html</a></p>
-<!--chapter:end:05-blocks.Rmd-->
-</div>
+<div id="data-frames" class="section level1">
+<h1>Data Frames</h1>
+<p>Fill this out.</p>
+<!--chapter:end:05-DataFrames.Rmd-->
 </div>
 <div id="sharing-your-book" class="section level1">
 <h1>Sharing your book</h1>
