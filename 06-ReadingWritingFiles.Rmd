@@ -1,31 +1,55 @@
-# Sharing your book
+# Reading and writing files.
 
-## Publishing
+You have to get the data into R first before you can analyse it (this helps a lot). R has many useful functions to do this, so now we can take our first look at some expression data. Download this file (http://bone.bmc.lu.se/Public/Mouse_HSPC_reduced.txt) and save it to your current working directory.
 
-HTML books can be published online, see: https://bookdown.org/yihui/bookdown/publishing.html
+***Exercise:*** Open the file in Excel or something to see how it looks, and then call `help(read.delim)` in your console. Try to work out how the file you are looking at could be read into R using this function.
 
-## 404 pages
+This is how I would do it:
 
-By default, users will be directed to a 404 page if they try to access a webpage that cannot be found. If you'd like to customize your 404 page instead of using the default, you may add either a `_404.Rmd` or `_404.md` file to your project root and use code and/or Markdown syntax.
+```{r,class.source = 'fold-hide',results=F}
+hspc.data <- read.delim("Mouse_HSPC_reduced.txt",header=T,row.name=1,sep="\t")
+```
+We can now look at a few aspects of the data:
 
-## Metadata for sharing
-
-Bookdown HTML books will provide HTML metadata for social sharing on platforms like Twitter, Facebook, and LinkedIn, using information you provide in the `index.Rmd` YAML. To setup, set the `url` for your book and the path to your `cover-image` file. Your book's `title` and `description` are also used.
-
-
-
-This `gitbook` uses the same social sharing data across all chapters in your book- all links shared will look the same.
-
-Specify your book's source repository on GitHub using the `edit` key under the configuration options in the `_output.yml` file, which allows users to suggest an edit by linking to a chapter's source file. 
-
-Read more about the features of this output format here:
-
-https://pkgs.rstudio.com/bookdown/reference/gitbook.html
-
-Or use:
-
-```{r eval=FALSE}
-?bookdown::gitbook
+```{r}
+colnames(hspc.data) # view the column names
+nrow(hspc.data) # the number of rows in the dataset
+ncol(hspc.data) # number of columns
+dim(hspc.data) # number of rows and columns together
+colnames(hspc.data) #output the columns headers
 ```
 
+***Exercise:*** Using subsetting we learnt about earlier, split this data matrix into three parts called `lthsc`, `mep` and `gmp` to separate the cell types shown in the headings. For this look at the help page for a function called `grep`.
 
+```{r,class.source = 'fold-hide',results=F}
+lthsc <- hspc.data[,grep("LTHSC",colnames(hspc.data))]
+mep <- hspc.data[,grep("MEP",colnames(hspc.data))]
+gmp <- hspc.data[,grep("GMP",colnames(hspc.data))]
+```
+
+To write a table use the `write.table` function:
+```{r}
+write.table(lthsc,"LTHSC_data.txt",row.names=T,col.names=NA,sep="\t",quote=F)
+```
+
+***Exercise:*** Write out the data for the MEP and GMP data into two files.
+
+The data tables we have now are in the form of a data.frame. Try:
+
+```{r}
+class(mep)
+```
+This can be an awkward format for some operations so we can convert it to a simple matrix first:
+
+```{r}
+hspc.data <- as.matrix(hspc.data)
+lthsc <- as.matrix(lthsc)
+mep <- as.matrix(mep)
+gmp <- as.matrix(mep)
+
+```
+
+Try this now:
+```{r}
+class(mep)
+```

@@ -1,0 +1,40 @@
+# Functions
+
+Functions and chunks of code that execture several lines of code to perform a task. Once you have a few lines of useful code that you want to apply repeatedly, a function is a nice way to wrap them up so it can be used quickly when needed. lets turn the code you wrote in the exercise earlier into a function where we also calculate the variance for a gene too.
+
+```{r}
+calc.mean.and.sd <- function(mat){
+  
+  mn <- NULL
+  vr <- NULL
+  
+  for(i in 1:nrow(mat)){  
+      mn <- c(mn,mean(mat[i,]))
+      vr <- c(vr,var(mat[i,]))
+    
+  }
+  res <- list(mns=mn,vars=vr)
+  res # the last line in a function is what the function will return
+}
+```
+
+You can see a loop is started, and the output from each loop is put into variables `mn` and `vr`. These are then put into a list which is was it returned at the end.
+By putting this code into a function we can now calculate the means and deviations of any matrix. For example, `gmp`:
+
+```{r}
+gmp.mn.sd <- calc.mean.and.sd(gmp) 
+```
+
+Functions can also work with built in conditions:
+
+```{r}
+animal.maths <- function(value1,value2,animal=c("pig","cow")){
+  
+  if(animal=="pig"){print(value1/value2)}
+  if(animal=="cow"){print(value1*value2)}
+  
+}
+animal.maths(5,5,"pig")
+animal.maths(5,5,"cow")
+
+```
