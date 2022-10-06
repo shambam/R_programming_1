@@ -38,3 +38,26 @@ animal.maths(5,5,"pig")
 animal.maths(5,5,"cow")
 
 ```
+
+The above can be simplified a bit further since there are only two options `pig` and `cow` by using the `else` statement:
+
+```{r}
+animal.maths <- function(value1,value2,animal=c("pig","cow")){
+  
+  if(animal=="pig"){print(value1/value2)}
+  else{print(value1*value2)}
+  
+}
+animal.maths(5,5,"pig")
+animal.maths(5,5,"cow")
+
+```
+
+In the case above we're only concerned if one of the arguments is `pig`, anything else goes:
+
+```{r}
+animal.maths(5,5,"dog")
+```
+
+
+These functions can now be "banked" for use whenever they are needed (probably not `animal.maths` to be fair). *However*, you should avoid using for-loops etc altogether since R has some built in functions that are much quicker and tidier. Lets look at that now.

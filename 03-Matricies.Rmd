@@ -13,12 +13,23 @@ tposed.m <- t(m)
 tposed.m
 ```
 
+We can also add names to the row and columns:
+
+```{r}
+rownames(m) <- LETTERS[1:10]
+colnames(m) <- c("cat","dog","pig","cow","chicken")
+m
+```
+
+
 ## Subsetting
 
 Lets make a matrix (and a vector) containing integer values so we can take a look at how subsetting work in R:
 ```{r}
 v <- 1:10
 m <- t(matrix(1:50,ncol=10,nrow=5))
+rownames(m) <- LETTERS[1:10]
+colnames(m) <- c("cat","dog","pig","cow","chicken")
 m
 ```
 We can access individual elements using square brackets `[]`. Here are some examples:
@@ -33,7 +44,15 @@ m[3:7,4] # the 3rd to 7th row of the 4th column
 
 Note the `c(7,1,5)` where we subset vector `v`. `c` means *combine* and it allows element in the `()` to be collected into a single vector.
 
-We often have the need to collect vectors and assemble them into a matrix. This can be done using the `rbind` (row) and `cbind` (column) functions:
+We can also address elements using the column and row names:
+
+```{r}
+m["B",] # gets the row labelled B
+m["B","cow"]
+```
+
+
+We often need to collect vectors and assemble them into a matrix. This can be done using the `rbind` (row) and `cbind` (column) functions:
 
 ```{r}
 v1 <- 1:10
