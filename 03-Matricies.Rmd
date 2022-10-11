@@ -49,6 +49,7 @@ We can also address elements using the column and row names:
 ```{r}
 m["B",] # gets the row labelled B
 m["B","cow"]
+m[c("F","J"),c("chicken","cat","pig")]
 ```
 
 
