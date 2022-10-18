@@ -30,6 +30,7 @@ The kmeans algorithm needs the user to say how many clusters are being searched 
 4. For each of the 10 clusters, calculate a new centroid.
 5. Repeat steps 2,3, and 4 100 times.
 
+We'll now work through this problem together and crowd source a solution.
 
 ```{r}
 centroids <- ycc[sample(1:256,10,replace=F),]
@@ -54,10 +55,19 @@ for(rounds in 1:100){
     centroids[k,] <- apply(ycc[which(clusters==k),],2,mean)
   }
 }
+```
 
+***Exercise*** Plot your clusters using base R or ggplots. Dealers choice.
+
+```{r,class.source = 'fold-hide',results=F}
 
 ```
 
 
+***Improvements***
+
+1. The code above will do 100 iterations, but what if the algorithm converges after 20? Alter the code so it stops when no changes are made and help save the planet.
+2. Write a function from this code that will take `data`, `K`, and `iterations` as an argument and perform Kmeans clustering. Return a list that contains the cluster assignments and data.
+3. Write a function that will plot from the list, a cluster of the user's choice.
 
 
