@@ -80,8 +80,8 @@ ggplot(ytm,aes(x = variable, y = value,group = ID)) + geom_line()+facet_wrap(~ C
 
 ***Improvements***
 
-1. The code above will do 100 iterations, but what if the algorithm converges after 20? Alter the code so it stops when no changes are made and help save the planet.
-2. Write a function from this code that will take `data`, `K`, and `iterations` as an argument and perform Kmeans clustering. Return a list that contains the cluster assignments and data.
+1. The code above will do 100 iterations, but what if the algorithm converges after 20? Alter the code so it stops when no further changes are made and help save the planet.
+2. Write a function from this code that will take any `data`, number of clusters `K`, and `iterations` as an argument and perform Kmeans clustering. Return a list that contains the cluster assignments and data.
 3. Write a function that will plot from the list, a cluster of the user's choice.
 
-ggplot(df, aes(x = x, y = value, color = variable)) + geom_line()
+

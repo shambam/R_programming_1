@@ -1,0 +1,3 @@
+# The Final Project
+
+Your final project is going to combine everything you have learned over the last few days to tackle a final project you will do in your own time over the next X weeks. It will be along the same lines the Kmeans clustering we just did, but this time we're going to cluster the data using the Metropolis-Hastings algorithm. This is a simulated anealing process, so we need to learn how that works first.
