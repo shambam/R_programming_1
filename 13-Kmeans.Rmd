@@ -11,13 +11,13 @@ ycc <- as.matrix(ycc)
 
 The data has already been z-scored, so we need to learn how to calculate the Euclidean distance between 2 genes (vector). We do this using the formula:
 
-$$\Sigma{(G_1-G_2)^2}$$
+$$\sqrt{\Sigma{(G_1-G_2)^2}}$$
 
 Write a function called `e.dist` which takes two vectors `v1` and `v2` and calculates the distance between them.
 
 ```{r,class.source = 'fold-hide',results=F}
 e.dist <- function(v1,v2){
-  d <- sum((v1-v2)^2)
+  d <- sqrt(sum((v1-v2)^2))
   d
 }
 ```
@@ -67,10 +67,6 @@ colnames(ycc.cl)[1] <- c("Cluster")
 ycc.df <- data.frame(ID=rownames(ycc.cl), ycc.cl, row.names=NULL)
 
 ytm <- melt(ycc.df,c("ID","Cluster"))
-
-ytm <- melt(as.data.frame(ycc.cl))
-
-ytm[1,]
 
 ggplot(ytm,aes(x = variable, y = value,group = ID)) + geom_line()+facet_wrap(~ Cluster, ncol = 3)
 

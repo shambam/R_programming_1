@@ -1,3 +1,68 @@
 # The Final Project
 
-Your final project is going to combine everything you have learned over the last few days to tackle a final project you will do in your own time over the next X weeks. It will be along the same lines the Kmeans clustering we just did, but this time we're going to cluster the data using the Metropolis-Hastings algorithm. This is a simulated anealing process, so we need to learn how that works first.
+Your final project is going to combine everything you have learned over the last few days to tackle a final project you will do in your own time over the next X weeks. It will be along the same lines the Kmeans clustering we just did, but this time we're going to cluster the data using the Metropolis-Hastings algorithm. This is a simulated annealing process, so we need to learn how that works first.
+
+## Optimisation problems
+
+Programming an optimisation problem is a great way of learning how to code. In this case we are going to tackle a minimisation problem. We can think of well clustered data having low energy, in that, each cluster is tight and has little within cluster variance. If we calculate the variance *within* each cluster, and sum over all clusters, we get the total variance (energy) of the system. Lets go back to the equation we know that measures the distance between two genes:
+
+$$d=\sqrt{\Sigma{(G_1-G_2)^2}}$$
+
+To measure the variance of a cluster $K$ we apply the following:
+
+$$ V_K= \frac{1}{t}\Sigma(g-\hat{g})^2 $$
+where $t$ is time, and $g$ is a gene. To get the total variance of all clusters, we simply sum and then divide by how many clusters there are:
+
+$$ V_{tot} = \frac{\Sigma V_K}{K}$$
+
+For a well clustered data, $V_{tot}$ should be as **small** as possible. Lets say we have 1000 genes, and we want to partition them into 10 clusters. The number of combinations is too high for us to try each one to brute force a true $V_{tot}$. This is why we use a *heuristic* algorithm to get us as close to the solution as possible in a smaller amount of time.
+
+If we tried to visualise the energy landscape we can imagine it might look something like this:
+
+```{r, out.width='60%', fig.align='center',echo=FALSE}
+knitr::include_graphics(rep("images/EnergyLandscape.png"))
+```
+
+Lets go through the process of the algorithm. To do this you need 4 parameters:
+
+1. The temperature of the system $T$
+2. Cooling factor $c$
+3. Number of clusters $K$
+4. How many iterations to perform $I$.
+
+Algorithm goes:
+
+&nbsp;&nbsp;&nbsp;&nbsp;Randomly assign each gene to each of your K clusters.
+
+for each iteration $I$ {
+
+&nbsp;&nbsp;&nbsp;&nbsp;Calculate $V_{tot}$. Call this $V_{old}$
+    
+&nbsp;&nbsp;&nbsp;&nbsp;Randomly select a gene and assign it to another cluster.
+  
+&nbsp;&nbsp;&nbsp;&nbsp;Calculate $V_{new}$
+    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if($V_{new}$ < $V_{old}$) {accept the move}
+    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if($V_{new} > V_{old})$ {if($e^-\frac{  V_{new}-V_{old}}{T} > R(0,1)$) {accept the move} }
+        
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else{reject the move}
+  
+&nbsp;&nbsp;&nbsp;&nbsp;set a new $T$ by doing $T=T \times c$
+}
+
+Done
+
+***Things to do***
+
+1. Code this algorithm using the same yeast timecourse data.
+2. Put this algorithm into a function.
+3. When running the function, make sure the starting $V_{start}$ and final $V_{final}$ are printed to the screen.
+
+***To make it tasty....***
+
+We'll reconvene in X weeks and we'll run each of your implementations on the same laptop and see who a) can get to the solution in the fastest time, and b) get the lowest $V_{final}$.
+
+The winner will get a prize bestowed upon us courtesy of the Research School.
+
+
