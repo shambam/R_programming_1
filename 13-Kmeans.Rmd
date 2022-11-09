@@ -1,6 +1,6 @@
 # Kmeans
 
-We're going to program our first algorithm together! Kmeans ckustering is a common way to cluster expression data, and the algorithm is actually pretty simple, and a great start to learning programmatic thinking. The data we'll use comes from yeast where the expression of 256 genes have been measured as a synchronised population go through two divisions. It's a nice, small dataset with clear clusters.
+We're going to program our first algorithm together! Kmeans clustering is a common way to cluster expression data, and the algorithm is actually pretty simple, and a great start to learning programmatic thinking. The data we'll use comes from yeast where the expression of 256 genes have been measured as a synchronised population go through two divisions. It's a nice, small dataset with clear clusters.
 
 There is a file called ""Spellman_Yeast_Cell_Cycle.tsv". Load it into a variable called `ycc` and convert it to a matrix.
 
@@ -59,9 +59,11 @@ for(rounds in 1:100){
 
 ***Exercise*** Plot your clusters using base R or ggplots. Dealers choice.
 
+ggplots:
 ```{r,class.source = 'fold-hide',results=F}
 library(reshape2)
 ycc.cl <- cbind(as.factor(clusters),ycc)
+
 colnames(ycc.cl)[1] <- c("Cluster")
 
 ycc.df <- data.frame(ID=rownames(ycc.cl), ycc.cl, row.names=NULL)
@@ -70,9 +72,24 @@ ytm <- melt(ycc.df,c("ID","Cluster"))
 
 ggplot(ytm,aes(x = variable, y = value,group = ID)) + geom_line()+facet_wrap(~ Cluster, ncol = 3)
 
-
 ```
 
+base R:
+
+```{r,class.source = 'fold-hide',results=F}
+
+par(mfrow=c(3,4))
+
+for(i in 1:10){
+  
+  ycc.c <- ycc[which(clusters==i),]
+  plot(ycc.c[1,],ty="l",ylim=range(ycc.c))
+  apply(ycc.c,1,lines)
+  
+}
+
+
+```
 
 ***Improvements***
 

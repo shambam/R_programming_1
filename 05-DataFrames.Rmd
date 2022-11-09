@@ -1,3 +1,21 @@
 # Data Frames
 
-Fill this out.
+Data frames can be thought of as a list where each column is of the same length. It allows you to mix different classes (characters,numerics) in the same container. For example, the iris datra which comes with R:
+
+```{r}
+data(iris)
+iris[sample(1:nrow(iris),10),] # show 10 random rows.
+```
+
+You see the first few column are numeric, and the last character strings. Data frames are the primary input into things like tidyverse etc, and can be adressed by their names just as you wopuld in a list:
+
+```{r}
+iris$Sepal.Length
+plot(iris$Sepal.Length,iris$Sepal.Width)
+
+ggplot(iris, aes(x=Sepal.Length, y=Sepal.Width,color=Species)) + geom_point()
+
+```
+
+
+

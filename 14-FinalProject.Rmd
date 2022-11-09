@@ -44,11 +44,11 @@ for each iteration $I$ {
     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if($V_{new}$ < $V_{old}$) {accept the move}
     
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if($V_{new} > V_{old})$ {if($e^-\frac{  V_{new}-V_{old}}{T} > R(0,1)$) {accept the move} }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if($V_{new} > V_{old})$ {if($e^{-\frac{  V_{new}-V_{old}}{T}} > R(0,1)$) {accept the move} }
         
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else{reject the move}
   
-&nbsp;&nbsp;&nbsp;&nbsp;set a new $T$ by doing $T=T \times c$
+&nbsp;&nbsp;&nbsp;&nbsp;Set a new $T$ by doing $T=T \times c$
 }
 
 Done
@@ -58,6 +58,18 @@ Done
 1. Code this algorithm using the same yeast timecourse data.
 2. Put this algorithm into a function.
 3. When running the function, make sure the starting $V_{start}$ and final $V_{final}$ are printed to the screen.
+
+***Tip***
+
+Try and break the problem up into functions which can be called when needed. It will be easier to write the main algorithm.
+
+***Why this exercise is a good one***
+
+By tackling a more difficult problem the idea is that you will dig deeper into the language and really understand how things work in the background of the functions you use in packages such as Seurat etc.
+
+***A little inspiration***
+
+Before you start, read [this](https://www.newyorker.com/magazine/2018/12/10/the-friendship-that-made-google-huge), and then watch [this](https://youtu.be/USC6c9Dtak8).
 
 ***To make it tasty....***
 
