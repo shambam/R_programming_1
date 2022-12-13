@@ -67,6 +67,9 @@ Try and break the problem up into functions which can be called when needed. It 
 
 By tackling a more difficult problem the idea is that you will dig deeper into the language and really understand how things work in the background of the functions you use in packages such as Seurat etc.
 
+***Are there libraries in R to do this?***
+Yes there are, but you won't learn anything by using them which is why we are coding this "by hand".
+
 ***A little inspiration***
 
 Before you start, read [this](https://www.newyorker.com/magazine/2018/12/10/the-friendship-that-made-google-huge), and then watch [this](https://youtu.be/USC6c9Dtak8).
