@@ -22,7 +22,7 @@ x
 
 The contents of x are now printed out.
 
-Now is a good time to learn about commenting and documenting code. This is free text you put into your scripts that tell the reader whats going on, and to remind your future self of what you did. Comments are put in using ```#```, so for example:
+**Now is a good time to learn about commenting and documenting code**. This is free text you put into your scripts that tell the reader whats going on, and to remind your future self of what you did. Comments are put in using ```#```, so for example:
 
 ```{r}
 x <- c(1,2,3,4,5,6,7,8,9,10) # This is a comment.

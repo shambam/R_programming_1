@@ -24,7 +24,7 @@ e.dist <- function(v1,v2){
 
 The kmeans algorithm needs the user to say how many clusters are being searched for, so in this case we'll say **10**.
 
-1. Define 10 centers randomly, i.e pick 10 genes at random.
+1. Define 8 centers randomly, i.e pick 10 genes at random.
 2. Calculate the distance between each gene to each of the 10 centroids.
 3. Assign each gene to the closest centroid.
 4. For each of the 10 clusters, calculate a new centroid.
@@ -33,28 +33,28 @@ The kmeans algorithm needs the user to say how many clusters are being searched 
 We'll now work through this problem together and crowd source a solution.
 
 ```{r}
-centroids <- ycc[sample(1:256,10,replace=F),]
+centroids <- ycc[sample(1:256,8,replace=F),] # make a vector of random clusters
 
-dists <- matrix(0,nrow=256,ncol=10)
+dists <- matrix(0,nrow=256,ncol=8) # make an empty matrix to fill with distances.
 
-clusters <- NULL
+#clusters <- NULL # make an empty variable to catch the clusters in the loop below
 
-for(rounds in 1:100){
+for(rounds in 1:100){ #do 100 iterations
 
   for(i in 1:256){
   
-    for(j in 1:10){
-      dists[i,j] <- e.dist(ycc[i,],centroids[j,])
+    for(j in 1:8){
+      dists[i,j] <- e.dist(ycc[i,],centroids[j,]) # for each gene i calculate the distance to centroid J.
     }
-    
   }
 
-  clusters <- apply(dists,1,which.min)
+  clusters <- apply(dists,1,which.min) # assign a  cluster according to which centroid is nearest
 
-  for(k in 1:10){
-    centroids[k,] <- apply(ycc[which(clusters==k),],2,mean)
+  for(k in 1:8){
+    centroids[k,] <- apply(ycc[which(clusters==k),],2,mean) # define new centroids.
   }
 }
+
 ```
 
 ***Exercise*** Plot your clusters using base R or ggplots. Dealers choice.
@@ -62,6 +62,7 @@ for(rounds in 1:100){
 ggplots:
 ```{r,class.source = 'fold-hide',results=F}
 library(reshape2)
+library(ggplot2)
 ycc.cl <- cbind(as.factor(clusters),ycc)
 
 colnames(ycc.cl)[1] <- c("Cluster")
@@ -78,9 +79,9 @@ base R:
 
 ```{r,class.source = 'fold-hide',results=F}
 
-par(mfrow=c(3,4))
+par(mfrow=c(2,4))
 
-for(i in 1:10){
+for(i in 1:8){
   
   ycc.c <- ycc[which(clusters==i),]
   plot(ycc.c[1,],ty="l",ylim=range(ycc.c))
@@ -94,7 +95,7 @@ for(i in 1:10){
 ***Improvements***
 
 1. The code above will do 100 iterations, but what if the algorithm converges after 20? Alter the code so it stops when no further changes are made and help save the planet.
-2. Write a function from this code that will take any `data`, number of clusters `K`, and `iterations` as an argument and perform Kmeans clustering. Return a list that contains the cluster assignments and data.
+2. Write a function from this code that will take any `data`, any number of clusters `K`, and `iterations` as an argument and perform Kmeans clustering. Return a list that contains the cluster assignments and data.
 3. Write a function that will plot from the list, a cluster of the user's choice.
 
 
