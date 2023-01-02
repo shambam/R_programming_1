@@ -19,7 +19,8 @@ calc.V.tot <- function(m,clus){
     for(i in 1:max(clus)){
         #print(i)
         clus.d <- m[which(clus==i),]
-        clus.V <- c(clus.V,sqrt(sum(dist(clus.d)^2)))
+        #clus.V <- c(clus.V,sqrt(sum(dist(clus.d)^2)))
+        clus.V <- c(clus.V,sum(dist(clus.d)))
     }
     
     sum(clus.V)/max(clus)

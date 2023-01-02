@@ -4,18 +4,15 @@ Your final project is going to combine everything you have learned over the last
 
 ## Optimisation problems
 
-Programming an optimisation problem is a great way of learning how to code. In this case we are going to tackle a minimisation problem. We can think of well clustered data having low energy, in that, each cluster is tight and has little within cluster variance. If we calculate the variance *within* each cluster, and sum over all clusters, we get the total variance (energy) of the system. Lets go back to the equation we know that measures the distance between two genes:
+Programming an optimisation problem is a great way of learning how to code. In this case we are going to tackle a minimisation problem. We can think of well clustered data having low energy, in that, each cluster is tight and has little within cluster variance. If we calculate the variance *within* each cluster, and sum over all clusters, we get the total variance (energy) of the system. Lets go back to the equation we know that measures the distance between two genes $i$ and $j$ over $t$ timepoints:
 
-$$d=\sqrt{\Sigma{(G_1-G_2)^2}}$$
+$$d_{ij}=\sqrt{\sum{(g^{i}_t-g^{j}_t)^2}}$$
 
-To measure the variance of a cluster $K$ we apply the following:
+To measure the compactness of a clustering, we sum the pairwises distances for each cluster $K$, then sum over all $K$s and them divide by $K$.
 
-$$ V_K= \frac{1}{t}\Sigma(g-\hat{g})^2 $$
-where $t$ is time, and $g$ is a gene. To get the total variance of all clusters, we simply sum and then divide by how many clusters there are:
+$$ E(K)-\frac{1}{K}\sum^K_{k=1} \left[ \sum_{i\epsilon Ck}\sum_{j\epsilon Ck} d_{ij}\right] $$
 
-$$ V_{tot} = \frac{\Sigma V_K}{K}$$
-
-For a well clustered data, $V_{tot}$ should be as **small** as possible. Lets say we have 1000 genes, and we want to partition them into 10 clusters. The number of combinations is too high for us to try each one to brute force a true $V_{tot}$. This is why we use a *heuristic* algorithm to get us as close to the solution as possible in a smaller amount of time.
+For a well clustered data, $E_{tot}$ should be as **small** as possible. Lets say we have 1000 genes, and we want to partition them into 10 clusters. The number of combinations is too high for us to try each one to brute force a true $E$. This is why we use a *heuristic* algorithm to get us as close to the solution as possible in a smaller amount of time.
 
 If we tried to visualise the energy landscape we can imagine it might look something like this:
 
@@ -32,19 +29,19 @@ Lets go through the process of the algorithm. To do this you need 4 parameters:
 
 Algorithm goes:
 
-&nbsp;&nbsp;&nbsp;&nbsp;Randomly assign each gene to each of your K clusters.
+&nbsp;&nbsp;&nbsp;&nbsp;Randomly assign each gene to one of your K clusters.
 
 for each iteration $I$ {
 
-&nbsp;&nbsp;&nbsp;&nbsp;Calculate $V_{tot}$. Call this $V_{old}$
+&nbsp;&nbsp;&nbsp;&nbsp;Calculate $E$. Call this $E_{old}$
     
-&nbsp;&nbsp;&nbsp;&nbsp;Randomly select a gene and assign it to another cluster.
+&nbsp;&nbsp;&nbsp;&nbsp;Randomly select a single gene and assign it randomly to another cluster.
   
-&nbsp;&nbsp;&nbsp;&nbsp;Calculate $V_{new}$
+&nbsp;&nbsp;&nbsp;&nbsp;Calculate $E_{new}$
     
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if($V_{new}$ < $V_{old}$) {accept the move}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if($E_{new}$ < $E_{old}$) {accept the move}
     
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if($V_{new} > V_{old})$ {if($e^{-\frac{  V_{new}-V_{old}}{T}} > R(0,1)$) {accept the move} }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if($E_{new} > E_{old})$ {if($e^{-\frac{V_{new}-V_{old}}{T}} > R(0,1)$) {accept the move} }
         
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else{reject the move}
   
@@ -52,6 +49,9 @@ for each iteration $I$ {
 }
 
 Done
+
+$R(0,1)$ is a randomly generated number from a uniform distribution that lies between 0 and 1.
+
 
 ***Things to do***
 
