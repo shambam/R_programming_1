@@ -7,7 +7,7 @@ We'll now look at some basic operations. The code should be copied into your R s
 Into your script copy/type the following line:
 
 ```{r}
-x <- c(1,2,3,4,5,6,7,8,9,10)
+x <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 ```
 
 This will make a **vector** of values from 1 to 10, and put them into a variable called `x`.
@@ -22,13 +22,13 @@ x
 
 The contents of x are now printed out.
 
-**Now is a good time to learn about commenting and documenting code**. This is free text you put into your scripts that tell the reader whats going on, and to remind your future self of what you did. Comments are put in using ```#```, so for example:
+**Now is a good time to learn about commenting and documenting code**. This is free text you put into your scripts that tell the reader whats going on. It also helps remind your future self of what you did or your thought process. Comments are put in using ```#```, so for example:
 
 ```{r}
-x <- c(1,2,3,4,5,6,7,8,9,10) # This is a comment.
+x <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10) # This is a comment.
 ```
 
-Anything after a `#` will be ignored. You can run the code again to check.
+Anything after a `#` will be ignored by R. You can run the code again to check.
 
 Rather than typing in the value 1 to 10, there is a much simpler way to create the same vector using `:`
 
@@ -36,6 +36,7 @@ Rather than typing in the value 1 to 10, there is a much simpler way to create t
 x <- 1:10
 x
 ```
+
 Much better! Using a colon will always do increments of 1, and it's also bidirectional:
 
 ```{r}
@@ -43,10 +44,10 @@ y <- 5:-5
 y
 ```
 
-Another way of creating a sequence of numbers is to use the `seq` function. To learn how this function works, issue the command `help(seq)`. In R you can get a manual for any function using the `help()` command. To generate a vector of numbers from 1 to 100 in steps of 10 we need:
+Another way of creating a sequence of numbers is to use the `seq` function. To learn how this function works, issue the command `help(seq)`. In R you can get a manual for any function using the `help()` command (or e.g. `?seq`). To generate a vector of numbers from 1 to 100 in steps of 10 we need:
 
 ```{r}
-a <- seq(0,100,by=10)
+a <- seq(0, 100, by = 10)
 a
 ```
 
@@ -54,7 +55,7 @@ a
 Done? Check the length of the vector you have just made by issuing `length(b)`.
 
 ```{r class.source = 'fold-hide',results=F}
-a <- seq(3,978,length=53)
+a <- seq(3, 978, length = 53)
 a
 ```
 
@@ -78,6 +79,12 @@ d <- 1/c  #make a vector d by dividing 1 by c
 d
 ```
 
+And do maths on them:
+```{r}
+mean(d) # calculate the mean of the vector
+sd(d) # the standard deviation
+```
+
 ## Basic plotting
 
 Lets use this vector `d` and plot them:
@@ -91,7 +98,7 @@ Note the way the axes are labelled in the plot function.
 ***Exercise:*** Call `help(plot)` in the console and read about the other plot options available. Produce the same plot as above, but this time as a **line** which is coloured **red**. Also, label the axes $c$ and $d$ and give the plot a title.
 
 ```{r class.source = 'fold-hide',results=T,fig.width=5, fig.height=4}
-plot(d,ty="l",col="red",xlab="c",ylab="d",main="My first plot")
+plot(d, ty = "l", col = "red", xlab = "c", ylab = "d", main = "My first plot")
 ```
 
 This plot was done using **base** R. This means we used the plotting functions native, or built-in to the R language. Plotting has been vamped up a lot in R since ggplot was introduced some time ago, the aim here to make plotting more customisable. Lets try the same plot but using ggplot. First, install it:
@@ -108,26 +115,27 @@ library(ggplot2)
 
 The first thing we need to do is make a **data.frame** of the data by doing:
 ```{r}
-df <- data.frame(c=c,d=d)
+df <- data.frame(c = c, d = d)
 ```
 
 This makes a table. You can see the first few lines by doing:
 ```{r}
 df[1:5,]
 ```
+
 Lets make the plot:
 ```{r fig.width=5, fig.height=4}
-ggplot(data=df, aes(x=c, y=d)) +geom_line()
+ggplot(data = df, aes(x = c, y = d)) + geom_line()
 ```
 
 We can even add the points:
 ```{r fig.width=5, fig.height=4}
-ggplot(data=df, aes(x=c, y=d)) +geom_line()+geom_point()
+ggplot(data = df, aes(x = c, y = d)) + geom_line() + geom_point()
 ```
 
 and change the colour of each:
 ```{r fig.width=5, fig.height=4}
-ggplot(data=df, aes(x=c, y=d)) +geom_line(color="red")+geom_point(color="green")
+ggplot(data = df, aes(x = c, y = d)) + geom_line(color = "red") + geom_point(color = "green")
 ```
 
 So ggplot is all about *layering* information onto plots, and this makes it very customisable. It definitely has a steeper learning curve, but worth it if you produce lots of plots on a day-to-day. If you're struggling with the idea, use this analogy of ggplots as a cake (Tanya Shapiro (\@tanya_shapiro), Twitter):
@@ -136,12 +144,6 @@ So ggplot is all about *layering* information onto plots, and this makes it very
 knitr::include_graphics(rep("images/ggplot_cake.png"))
 ```
 
-Back to vectors, we can also do maths on them:
-
-```{r}
-mean(d) # calculate the mean of the vector
-sd(d) # the standard deviation
-```
 
 
 
