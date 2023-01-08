@@ -1,9 +1,8 @@
 # Linear models
 
-Fitting a linear model (or linear regression) is also another fairly common thing we tend to do, and actually forms the basis of some of the more famous packages we use such as DESeq2, limma etc. Let's use our expression data to demonstrate this.
+Fitting a linear model (or linear regression) is also another fairly common thing to do, and actually forms the basis of some of the more famous packages we use such as DESeq2, limma etc. Let's use our expression data to demonstrate this.
 
 In our case we have 3 different samples:
-
 ```{r}
 colnames(hspc.data)
 ```
@@ -11,10 +10,9 @@ We need to make a vector of *factors* from this info to specify the different gr
 
 ***Exercise:*** Install the `stringr` package and call it in your session.
 
-
 ```{r}
 samples <- colnames(hspc.data)
-groups <- gsub("\\..*","",samples) # This will make a new vector of names but remove the ".X" leaving just what type each sample belongs to
+groups <- gsub("\\..*", "", samples) # This will make a new vector of names but remove the ".X" leaving just what type each sample belongs to
 groups
 ```
 
@@ -24,7 +22,6 @@ lmod
 ```
 
 Lets call `anova` on this:
-
 ```{r}
 ano <- anova(lmod)
 ano
@@ -32,14 +29,11 @@ ano
 As you can see, the groups factor has a significant value meaning it seems this gene is differentially expressed.
 
 ***Exercise:*** Take a look at the `ano` object and see how to isolate just the p-value from all this info.
-
 ```{r,class.source = 'fold-hide',results=F}
 ano$`Pr(>F)`[1]
 ```
 
-
 ***Exercise:*** Make a function called `do.anova` which takes a vector `v`and a vector `groups`, performs linear modelling and ANOVA and returns *just* the p-value.
-
 ```{r}
 do.anova <- function(v,groups){
   
@@ -50,24 +44,22 @@ do.anova <- function(v,groups){
 ```
 
 We can now apply this to all of our data:
-
 ```{r}
-ps <- apply(hspc.data, MARGIN=1, FUN=function(x) do.anova(x,groups) )
-p.adj <- p.adjust(ps,"hochberg")
+ps <- apply(hspc.data, MARGIN = 1, FUN = function(x) do.anova(x, groups) )
+p.adj <- p.adjust(ps, "hochberg")
 ```
 
 Get the top 500 genes:
-
 ```{r}
 sig.genes <- names(sort(p.adj))[1:500]
 ```
 
 Heatmap them!
-
 ```{r}
 library(RColorBrewer)
 breaksList = seq(-3, 3, by = 0.2)
-hspc.zs.all <- t(apply(hspc.data,1,zscore))
+hspc.zs.all <- t(apply(hspc.data, 1, zscore))
+
 pheatmap(hspc.zs.all[sig.genes,],breaks = breaksList,color = colorRampPalette(rev(brewer.pal(n = 7, name = "RdYlBu")))(length(breaksList)))
 ```
 

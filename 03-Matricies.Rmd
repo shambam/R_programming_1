@@ -1,23 +1,22 @@
-# Matricies
+# Matrices
 
-Matricies are the most common data format bioinformaticians work with (microarray/RNAseq data for example). Lets make one:
+Matrices are the most common data format bioinformaticians work with (microarray/RNAseq data for example). Lets make one:
 
 ```{r}
-m <- matrix(0,ncol=5,nrow=10)
+m <- matrix(0, ncol = 5, nrow = 10)
 m
 ```
-This will create a matrix filled with zeros. To transpose (flip) the matrix we use `t()` (this will be important later!)
 
+This will create a matrix filled with zeros. To transpose (flip) the matrix we use `t()` (this will be important later!)
 ```{r}
 tposed.m <- t(m)
 tposed.m
 ```
 
 We can also add names to the row and columns:
-
 ```{r}
 rownames(m) <- LETTERS[1:10]
-colnames(m) <- c("cat","dog","pig","cow","chicken")
+colnames(m) <- c("cat", "dog", "pig", "cow", "chicken")
 m
 ```
 
@@ -27,13 +26,13 @@ m
 Lets make a matrix (and a vector) containing integer values so we can take a look at how subsetting work in R:
 ```{r}
 v <- 1:10
-m <- t(matrix(1:50,ncol=10,nrow=5))
+m <- t(matrix(1:50, ncol = 10, nrow = 5))
 rownames(m) <- LETTERS[1:10]
-colnames(m) <- c("cat","dog","pig","cow","chicken")
+colnames(m) <- c("cat", "dog", "pig", "cow", "chicken")
 m
 ```
-We can access individual elements using square brackets `[]`. Here are some examples:
 
+We can access individual elements using square brackets `[]`. Here are some examples:
 ```{r}
 v[c(7,1,5)] #access elements 7 1 and 5 of the vector
 m[1,] # access the first row of the matrix
@@ -45,21 +44,18 @@ m[3:7,4] # the 3rd to 7th row of the 4th column
 Note the `c(7,1,5)` where we subset vector `v`. `c` means *combine* and it allows element in the `()` to be collected into a single vector.
 
 We can also address elements using the column and row names:
-
 ```{r}
 m["B",] # gets the row labelled B
-m["B","cow"]
-m[c("F","J"),c("chicken","cat","pig")]
+m["B", "cow"]
+m[c("F", "J"),c("chicken", "cat", "pig")]
 ```
 
-
 We often need to collect vectors and assemble them into a matrix. This can be done using the `rbind` (row) and `cbind` (column) functions:
-
 ```{r}
 v1 <- 1:10
 v2 <- 101:110
-rbound.mat <-rbind(v1,v2)
-cbound.mat <- cbind(v1,v2)
+rbound.mat <-rbind(v1, v2)
+cbound.mat <- cbind(v1, v2)
 rbound.mat
 cbound.mat
 ```

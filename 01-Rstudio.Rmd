@@ -17,7 +17,7 @@ Before we start, we need to do a little prep.
 
 1. On your computer, make a folder called "Rcourse1".
 
-We then set the working directroy to this folder, so
+We then set the working directory to this folder, so
 
 2. In RStudio go to Session > Set Working Directory > Choose Directory and find the "Rcourse1" folder and select it.
 
@@ -25,7 +25,7 @@ RStudio will now be looking for files in this folder, and any saved plots will b
 
 Now, go to File > New File > R Script
 
-A new empty script will open up in the top left window. Go to File > Save and give it a name. It will them be saved to you current working directory. You should see your file being added to the list in the Plot and Files pane.
+A new empty script will open up in the top left window. Go to File > Save and give it a name. It will be saved to you current working directory. You should see your file being added to the list in the Plot and Files pane.
 
 Now that we've done our prep, let do some R.
 

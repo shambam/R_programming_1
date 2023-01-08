@@ -1,16 +1,14 @@
 # Apply
 'apply' is a commonly used function in R to speed up matrix calculation. For example, to calculates means of a matrix we can do this:
-
 ```{r}
-lthsc.row.mn <- apply(lthsc,1,mean) # means of rows
-lthsc.col.mn <- apply(lthsc,2,mean) # means of columns
+lthsc.row.mn <- apply(lthsc, 1, mean) # means of rows
+lthsc.col.mn <- apply(lthsc, 2, mean) # means of columns
 ```
-The format for the function is therefore the matrix first, the direction in which you would like to apply the function in the 3rd argument.
+The format for the function is therefore (1) the matrix, (2) the direction in which you would like to apply a function, and (3) the function to be applied.
 
- use `apply` to calculate row and column totals and deviations for a yeast dataset of your choosing.
+***Exercise:*** Use `apply` to calculate row and column totals and deviations for a yeast dataset of your choosing.
 
 Your own functions can also be used with `apply` when used as the 3rd argument. Example:
-
 ```{r}
 
 example.func <- function(v){
@@ -19,13 +17,13 @@ example.func <- function(v){
   val
 }
 
-ex.apply <- apply(mep,1,example.func)
+ex.apply <- apply(mep, 1, example.func)
 
 ```
 
 Lets use the apply function to get the top 500 most variable genes in our HSPC dataset:
 ```{r}
-gene.vars <- apply(hspc.data,1,var)
+gene.vars <- apply(hspc.data, 1, var)
 top.var.genes <- names(rev(sort(gene.vars))[1:500])
 hspc.var <- hspc.data[top.var.genes,]
 ```

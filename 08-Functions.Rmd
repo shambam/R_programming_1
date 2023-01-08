@@ -1,7 +1,6 @@
 # Functions
 
-Functions and chunks of code that execture several lines of code to perform a task. Once you have a few lines of useful code that you want to apply repeatedly, a function is a nice way to wrap them up so it can be used quickly when needed. lets turn the code you wrote in the exercise earlier into a function where we also calculate the variance for a gene too.
-
+Functions are chunks of code that execute several lines of code to perform a task. Once you have a few lines of useful code that you want to apply repeatedly, a function is a nice way to wrap them up so it can be used quickly when needed. lets turn the code you wrote in the previous exercise into a function where we also calculate the variance for a gene.
 ```{r}
 calc.mean.and.sd <- function(mat){
   
@@ -9,55 +8,57 @@ calc.mean.and.sd <- function(mat){
   vr <- NULL
   
   for(i in 1:nrow(mat)){  
-      mn <- c(mn,mean(mat[i,]))
-      vr <- c(vr,var(mat[i,]))
+      mn <- c(mn, mean(mat[i,]))
+      vr <- c(vr, var(mat[i,]))
     
   }
-  res <- list(mns=mn,vars=vr)
-  res # the last line in a function is what the function will return
+  res <- list(mns = mn, vars = vr)
+  res # the last line in a function is what the function will return. You can also be more explicit and say return(res) 
 }
 ```
 
-You can see a loop is started, and the output from each loop is put into variables `mn` and `vr`. These are then put into a list which is was it returned at the end.
+You can see a loop is started, and the output from each loop is put into variables `mn` and `vr`. These are then put into a list which is returned at the end.
 By putting this code into a function we can now calculate the means and deviations of any matrix. For example, `gmp`:
-
 ```{r}
 gmp.mn.sd <- calc.mean.and.sd(gmp) 
 ```
 
-Functions can also work with built in conditions:
-
+Functions can also work with built-in conditions:
 ```{r}
-animal.maths <- function(value1,value2,animal=c("pig","cow")){
+animal.maths <- function(value1, value2, animal = c("pig", "cow")){
   
-  if(animal=="pig"){print(value1/value2)}
-  if(animal=="cow"){print(value1*value2)}
+  if(animal == "pig"){
+    print(value1/value2)
+  }
+  if(animal == "cow"){
+    print(value1*value2)
+  }
   
 }
-animal.maths(5,5,"pig")
-animal.maths(5,5,"cow")
+animal.maths(5, 5, "pig")
+animal.maths(5, 5, "cow")
 
 ```
 
 The above can be simplified a bit further since there are only two options `pig` and `cow` by using the `else` statement:
-
 ```{r}
-animal.maths <- function(value1,value2,animal=c("pig","cow")){
+animal.maths <- function(value1,value2,animal=c("pig", "cow")){
   
-  if(animal=="pig"){print(value1/value2)}
-  else{print(value1*value2)}
+  if(animal == "pig"){
+    print(value1/value2)
+  }else{
+    print(value1*value2)
+  }
   
 }
-animal.maths(5,5,"pig")
-animal.maths(5,5,"cow")
+animal.maths(5, 5, "pig")
+animal.maths(5, 5, "cow")
 
 ```
 
 In the case above we're only concerned if one of the arguments is `pig`, anything else goes:
-
 ```{r}
-animal.maths(5,5,"dog")
+animal.maths(5, 5, "dog")
 ```
-
 
 These functions can now be "banked" for use whenever they are needed (probably not `animal.maths` to be fair). *However*, you should avoid using for-loops etc altogether since R has some built in functions that are much quicker and tidier. Lets look at that now.

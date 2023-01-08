@@ -1,16 +1,14 @@
 # Standardising data
 
-Lets stick with our expression data and cluster it. by doing this we'll learn more of the language, and some of the fundamental maths that runs underneath. Lets take a look at the range of the data, i.e getting the lowest and highest value in the matrix of variable genes we just made.
+Lets stick with our expression data and cluster it. Doing so, we'll learn more of the language, and some of the fundamental maths that runs underneath. Lets take a look at the range of the data, i.e. getting the lowest and highest value in the matrix of variable genes we just made.
 ```{r}
 range(hspc.var)
 ```
 
+For some operations (such as making heatmaps) the data needs to be z-score normalised (scaled) first. When we scale data, each row of gene is standarised so that it's mean = 0 and sd = 1. Specifically for a gene `g` of the i-th row:
 
-For some operations (such as making heatmaps) the data needs to be z-score normalised (scaled) first. When we scale data, each row of gene is standarised so that it's mean=0 and sd=1. Specifically for a gene `g` of the i-th row:
-
-$$Z_i= \frac{g_i-\hat{g}}{\sigma_g}$$
-
-Which means for every row $i$ we subtract from each element $g$ we subract the mean of the row $\hat{g}$ and then divide by the standard deviation of the row $\sigma_g$.
+$$Z_i= \frac{g_i-\hat{g}}{\sigma_g_i}$$
+Which means for every gene ($g_i$) we subtract the mean expression of the gene ($\hat{g)}$) to each expression value ($g_i$) and divide by the standard deviation of the expression of the gene ($\sigma_g_i$).
 
 ***Exercise:*** write a function called `zscore` which will take a single vector of values and scale them. When you have done this, `apply` this to the `hspc.var` matrix to scale all rows and call it `hspc.zs`.
 ```{r,class.source = 'fold-hide',results=F}
@@ -23,30 +21,25 @@ hspc.zs <- apply(hspc.var,1,zscore)
 ```
 
 Now take a look at the first row of the normalised data. Call `nrow` on the matrix. Does it look right? 
-
 ```{r}
-hspc.zs <- t(apply(hspc.var,1,zscore))
-boxplot(hspc.zs,las=2)
+hspc.zs <- t(apply(hspc.var, 1, zscore))
+boxplot(hspc.zs, las = 2)
 # compare to the original data
-boxplot(hspc.var,las=2)
+boxplot(hspc.var, las = 2)
 ```
-
-
 We can see now the data has been centralised around 0.
 
-***Exercise:*** Do some Googling and see if there is a built in function in R that will zscore rows of data for you. Use it to zscore your data and save the output in `hspc.zs.v2`.
+***Exercise:*** Do some Googling and see if there is a built in function in R that will calculate zscores for you. Use it to zscore your data and save the output in `hspc.zs.v2`.
 
 ```{r,class.source = 'fold-hide',results=F}
-
-hspc.zs.v2 <- t(apply(hspc.var,1,scale))
+hspc.zs.v2 <- t(apply(hspc.var, 1, scale))
 hspc.zs.v2[1,]
 
 ```
 
 Lets make sure the same thing has been returned by comparing the first row:
-
 ```{r}
-all.equal(hspc.zs[10,],hspc.zs.v2[10,])
+all.equal(hspc.zs[10,], hspc.zs.v2[10,])
 ```
 
 

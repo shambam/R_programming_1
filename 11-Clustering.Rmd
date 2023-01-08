@@ -1,24 +1,22 @@
 # Clustering
 
-All the steps before have been leading to this, clustering the data and making heatmaps- a staple method in bioinformatics.
+All the steps before have been leading to this, clustering the data and making heatmaps - a staple method in bioinformatics.
 
-Clustering is one of the most common visualisation techniques for genes expression data. Here we will learn how to do some basic histograms/heatmaps and plotting. The first thing  
+Clustering is one of the most common visualisation techniques for genes expression data. Here we will learn how to do some basic histograms/heatmaps and plotting. 
+
 R has many ways to do this, and many packages have been written specifically for expression data. We are not going to use these for now, but concentrate on the basic underlying functions that do the maths. For example, the `gplots` package uses the `hclust` function which is provided by R. So we will use `hclust` for now.
 
 To use `hclust` we need to provide a distance matrix. This is done using the `dist` function:
-
 ```{r}
 hspc.dst <- dist(hspc.zs)
 ```
 
-The we cluster using `hclust`:
-
+We then cluster using `hclust`:
 ```{r}
 hspc.hc <- hclust(hspc.dst)
 ```
 
 Plot the dendrogram:
-
 ```{r}
 plot(hspc.hc)
 ```
@@ -30,28 +28,24 @@ hspc.hc <- hclust(hspc.dst)
 plot(hspc.hc)
 ```
 
-We can see this is pretty much useless. It is far to compact and doesn't really tell us anything. What we would like is to make a heatmap where the genes and samples are clusters, and to do this we need to retrieve some information created by `hclust`
+We can see this is pretty much useless. It is far to compact and doesn't really tell us anything. What we would like is to make a heatmap where the genes and samples are clustered. To do this we need to retrieve some information created by `hclust`
 
 Call `names` to see which information is available in the newly created object:
-
 ```{r}
 names(hspc.hc)
 ```
 
 What we need here is the component called `order`. We can get this using the `$` assignment.
-
 ```{r}
 hspc.hc$order
 ```
 
-This is the order the cells appear in form left to right when you plotted the dendrogram os cells ust before. We use this to reorder the z-scored matrix:
-
+This is the order the cells appear in form left to right when you plotted the dendrogram of cells just before. We use this to reorder the z-scored matrix:
 ```{r}
-hspc.cell.clustered <- hspc.zs[,hspc.hc$order]
+hspc.cell.clustered <- hspc.zs[, hspc.hc$order]
 ```
 
 To make a heatmap of the data call `image`:
-
 ```{r}
 image(hspc.cell.clustered)
 ```
@@ -60,8 +54,7 @@ Ok, this **doesn't** look like it should! The matrix is the wrong way round, the
 
 ***Exercise:*** Install the `pheatmap` package.
 
-To use the functions provided by ggplots we have to load it first:
-
+Load it first:
 ```{r}
 library(pheatmap)
 ```
@@ -72,18 +65,16 @@ pheatmap(hspc.zs)
 ```
 
 The pheatmap function uses `hclust` to cluster the genes and cells and reorders the matrix according to both. Lets output this to a file:
-
 ```{r}
-png("HSPC_heatmap.png",height=4500,width=1500)
+png("HSPC_heatmap.png", height = 4500, width = 1500)
 pheatmap(hspc.zs)
 dev.off()
 ```
-The file is opened, and the plot is then made. The `dev.off()` then closed and finalises the file, i.e nothing more can be written to it.
+The file is opened, the plot is made, and `dev.off()` closes and finalises the file (i.e. nothing more can be written to it).
 
 ***Exercise:*** call `help (pheatmap)` and see what options are available. Play with the options to see what they do.
 
 Clustering is pretty pointless if you can't define groups and get to the gene names. First we need to capture the output from `pheatmap` as a variable:
-
 ```{r}
 hspc.clust <- pheatmap(hspc.zs)
 ```
@@ -93,7 +84,6 @@ names(hspc.clust)
 ```
 
 What we want is the information contained within the hclust object in `tree_row`. We get this by treating it like a list:
-
 ```{r}
 hspc.clust$tree_row
 hspc.clust$tree_row$order #the order of genes in the heatmap for examples.
@@ -101,25 +91,22 @@ hspc.clust$tree_row$order #the order of genes in the heatmap for examples.
 
 Lets say that we want to split the genes in to 5 clusters groups, we can call the `cutree` function on an `hclust` object to do this:
 ```{r}
-gene.clusters <- cutree(hspc.clust$tree_row,k=5)
+gene.clusters <- cutree(hspc.clust$tree_row, k = 5)
 gene.clusters[1:20] # shows the results for the first 20 genes.
 table(gene.clusters)
 barplot(table(gene.clusters))
 ```
 
 Lets isolate all the genes beloning to cluster 1 using the `which` command:
-
 ```{r}
-which(gene.clusters==1)
+which(gene.clusters == 1)
 ```
 We can isolate these rows only from our `hspc.zs` matrix as we did before:
-
 ```{r}
-hspc.cluster.1 <- hspc.zs[names(which(gene.clusters==1)),]
+hspc.cluster.1 <- hspc.zs[names(which(gene.clusters == 1)),]
 ```
 
 We can now see how these gene behave as a whole using a boxplot:
-
 ```{r}
-boxplot(hspc.cluster.1,las=2)
+boxplot(hspc.cluster.1, las = 2)
 ```

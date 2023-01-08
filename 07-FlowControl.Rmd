@@ -1,9 +1,8 @@
 # Flow control basics
 
-This is where things get more interesting and we start to feel like proper programmers. Now we have these datasets loaded in R, we can use them to learn about flow control and some basic mathematical functions. We are going to do a few things the "long way" so you get the idea of how flow control works, and then we'll look at some shortcuts.
+This is where things get more interesting and we start to feel like proper programmers. Now that we have these datasets loaded in R, we can use them to learn about flow control and some basic mathematical functions. We are going to do a few things the "long way" so you get the idea of how flow control works, and then we'll look at some shortcuts.
 
 Flow control is how multi-step processes are carried out. In the example below we print out the numbers 1 to 10:
-
 ```{r}
 for(i in 1:10){
   print(i)
@@ -17,11 +16,10 @@ To translate this code, it simply says for every integer from 1 to 10, print thi
 - Print every **2nd** line of `mep` from lines 1 to 50.
 
 An important point regarding `for` loops is that any processes/calculations occurring within the loop will stay in the loop. If data generated within a loop has to be retained, we need to create a container to "fill up" while the loop is being carried out.
-
 ```{r}
 vec <- NULL
 for(i in 1:10){
-  vec <- c(vec,i*10)
+  vec <- c(vec, i*10)
 }
 ```
 The container `vec` is initialised outside the loop, and then populated by concatenating to it after every iteration of the loop.
@@ -29,10 +27,8 @@ The container `vec` is initialised outside the loop, and then populated by conca
 ***Exercise:*** Initialise an empty container, and for `gmp`, calculate the mean of each row (gene), and store the results in the containers you made.
 
 ```{r,class.source = 'fold-hide',results=F}
-
 gmp.row.mean <- NULL
-
 for(i in 1:nrow(gmp)){
-  gmp.row.mean <- c(gmp.row.mean,mean(gmp[i,]))
+  gmp.row.mean <- c(gmp.row.mean, mean(gmp[i,]))
 }
 ```

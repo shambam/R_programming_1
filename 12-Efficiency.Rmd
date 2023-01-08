@@ -1,27 +1,24 @@
-# Efficiency- time is precious.
+# Efficiency - time is precious.
 
-Something to remember- always- is that comuputer resources such as RAM and disk space should be used wisely. In this was your code will be faster and leaner. Here is a small example where we make a vector from one to 50,000 using a loop:
-
+Something to *always* remember is that computer resources such as RAM and disk space should be used wisely. One should always aim to create fast and lean code - that is, without compromising readability. Here is a small example where we make a vector from one to 50,000 using a loop:
 ```{r}
 values <- NULL # make an empty container to catch the values
 
 for(i in 1:50000){
-  values <- c(values,i)
+  values <- c(values, i)
 }
 
 values[1:10]
 ```
 
 Lets do this again, but this time measure how long it takes using the `system.time` function:
-
 ```{r}
 values <- NULL # make an empty container to catch the values
-system.time(for(i in 1:50000){  values <- c(values,i)})
+system.time(for(i in 1:50000){  values <- c(values, i)})
 length(values) # check length
 ```
 
 Ok, now the same thing again, but this time we will fill a vector rather that growing it:
-
 ```{r}
 values <- vector("numeric",100000) # make an empty container to catch the values
 system.time(for(i in 1:100000){  values[i] <- i})
