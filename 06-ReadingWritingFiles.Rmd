@@ -1,6 +1,6 @@
 # Reading and writing files.
 
-You have to get the data into R first before you can analyse it (this helps a lot). R has many useful functions to do this, so now we can take our first look at some expression data. Download this file (http://bone.bmc.lu.se/Public/Mouse_HSPC_reduced.txt) and save it to your current working directory.
+You have to get the data into R first before you can analyse it (this helps a lot). R has many useful functions to do this, so now we can take our first look at some expression data. Download this file (https://github.com/shambam/R_programming_1/blob/main/Mouse_HSPC_reduced.txt) and save it to your current working directory.
 
 ***Exercise:*** Open the file in Excel or something to see how it looks, and then call `help(read.delim)` in your console. Try to work out how the file you are looking at could be read into R using this function.
 
